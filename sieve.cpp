@@ -8,3 +8,10 @@ inline void sieve(){ p[2]=1;
     for(int i=3; i<1001; i+=2) if(p[i])
         for(int j=i*i; j<N; j+=i+i) p[j]=0;
 }
+inline bool isP(const int& n){
+    if(n<2) return false;
+    if(n<4) return true;
+    for(int i=2; i*i<=n; ++i)
+        if(n%i==0) return false;
+    return true;
+}
