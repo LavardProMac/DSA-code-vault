@@ -1,7 +1,7 @@
 //O(sqrt N)
 inline int uoc(ll n, int cnt=0){
-    int s=sqrt(n);
-    for(int i=1; i<=s; ++i)
+    int s=sqrt(n), k=(n&1)? 2:1;
+    for(int i=1; i<=s; i+=k)
         if(n%i==0) cnt+=2;
     if(1ll*s*s==n) --cnt;
     return cnt;
