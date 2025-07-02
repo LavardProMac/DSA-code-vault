@@ -8,9 +8,11 @@ inline int uoc(ll n, int cnt=0){
 }
 //O(cbrt N)
 inline int uoc2(ll n, int res=1){
-    for(int i=2; i*i<=n; ++i){
-        if(n%i) continue;
-        int cnt=1;
+    int cnt=1;
+    while(!(n&1)) n>>=1, ++cnt;
+    res *= cnt;
+    for(int i=3; i*i<=n; i+=2){
+        if(n%i) continue; cnt=1;
         while(n%i==0) n/=i, ++cnt;
         res *= cnt;
     }return n>1? res*2 : res;
