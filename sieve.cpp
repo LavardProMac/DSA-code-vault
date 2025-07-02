@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#define ll long long
 #pragma GCC optimize("O3,unroll-loops")
 using namespace std; const int N=1e6+1;
 bitset<N> p;
@@ -13,10 +14,9 @@ inline void sang(const int& n){ p[2]=1;
     for(int i=3; i*i<=n; i+=2) if(p[i])
         for(int j=i*i; j<=n; j+=i+i) p[j]=0;
 }
-inline bool isP(const int& n){
-    if(n<2) return false;
-    if(n<4) return true;
-    for(int i=2; i*i<=n; ++i)
+inline bool isP(const ll& n){
+    if(n<2) return 0; if(n<4) return 1;
+    for(int i=2, s=sqrt(n); i<=s; ++i)
         if(n%i==0) return false;
     return true;
 }
