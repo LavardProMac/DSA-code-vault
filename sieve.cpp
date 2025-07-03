@@ -16,7 +16,8 @@ inline void sang(const int& n){ p[2]=1;
 }
 inline bool isP(const ll& n){
     if(n<2) return 0; if(n<4) return 1;
-    for(int i=2, s=sqrt(n); i<=s; ++i)
+    if(n%2==0) return false;
+    for(int i=3, s=sqrt(n); i<=s; i+=2)
         if(n%i==0) return false;
     return true;
 }
