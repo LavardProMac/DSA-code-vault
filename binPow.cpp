@@ -10,5 +10,5 @@ inline ll mul(ll a, ll b){
     if(!b) return 0;
     ll x=mul(a, b>>1);
     return (b&1)? 
-        ((x<<1)+a)%M : 2*x%M;
+        ((x<<1)+a)%M:2*x%M;
 }
