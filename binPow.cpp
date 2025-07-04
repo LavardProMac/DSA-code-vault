@@ -8,7 +8,7 @@ inline ll Pow(ll a, ll b, ll r=1){
 }
 inline ll mul(ll a, ll b){
     if(!b) return 0;
-    ll x=mul(a, b>>!);
+    ll x=mul(a, b>>1);
     return (b&1)? 
         ((x<<1)+a)%M : 2*x%M;
 }
