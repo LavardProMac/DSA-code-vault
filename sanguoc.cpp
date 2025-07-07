@@ -1,7 +1,7 @@
 using namespace std; const int N=1e6+1;
 int spf[N], a[N]; //spf : smallest prime factor
 //O(N log N)
-inline int sanguoc(){
+inline void sanguoc(){
     for(int i=1; i<N; ++i)
         for(int j=i; j<N; j+=i) ++a[j];
 }
