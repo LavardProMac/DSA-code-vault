@@ -1,8 +1,8 @@
 using namespace std; const int N=1e6+1;
-ll P[N]; const int M=2024;
+ll p[N]; const int M=2024;
 
 inline ll mu(ll b, ll e, ll r=1){
-    for(; e; e>>=1, b=b*b%m)
+    for(; e; e>>=1, b=b*b%M)
         if(e&1) r=r*b%M;
     return r;
 }
