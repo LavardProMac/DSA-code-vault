@@ -2,11 +2,11 @@
 #define ll long long
 using namespace std;
 
-inline ll dau(ll a,ll r){
+inline ll dau(ll a, ll r){
     ll x=a+(r-a%7+7)%7;
     return x;
 }
-inline ll cuoi(ll b,ll r){
+inline ll cuoi(ll b, ll r){
     ll x=b-(b-r+7)%7;
     return x;
 }
