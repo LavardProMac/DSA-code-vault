@@ -13,7 +13,7 @@ int main(){
 		vector<vi> p(m, vi(n));
 		fo(i,0,m) fo(j,0,n) cin>>p[i][j];
 		int l=1, r=1e9, ans=0;
-		while(l<=r){
+		while(l<=r){	
 			int mid=(l+r)/2; vector<vi> c(n);
 			fo(i,0,m) fo(j,0,n) if(p[i][j]>=mid)
 			c[j].push_back(i); bool ok=1, kt=0;
