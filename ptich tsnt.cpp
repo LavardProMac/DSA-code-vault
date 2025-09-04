@@ -101,16 +101,12 @@ vector<ll> factorize(ll x){
     return ans;
 }
 vector<ll> factorize_pk(ll x){
-    vector<ll> ps=factorize(x);
-    ll last=-1, cnt=0;
-    vector<ll> res;
-    for(const ll& p : ps){
-        if(p!=last){
-            if(last>0) res.push_back(last);
+    vector<ll> ps=factorize(x), res;
+    ll last=-1;
+    for(const ll& p:ps)
+        if(p!=last)
+            res.push_back(p),
             last=p;
-        }else ++cnt;
-    }
-    if(cnt>0) res.push_back(last);
     return res;
 }
 
@@ -121,7 +117,6 @@ int main(){
         vector<ll> v=factorize_pk(b);
         for(ll i:v) if(a%i){
             cout<<"NO\n"; ok=0; break;
-        }
-        if(ok) cout<<"YES\n";
+        }if(ok) cout<<"YES\n";
     }
 }
