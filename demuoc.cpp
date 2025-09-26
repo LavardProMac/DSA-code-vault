@@ -19,7 +19,7 @@ inline int uoc2(ll n, int res=1){
 }
 //O(log N)
 using namespace std; const int N=1e6+1;
-bitset<N> p; vector<int> v{2};
+bitset<N> p; vector<int> v={2};
 
 inline void sieve(){
     for(int i=3; i<N; i+=2) p[i]=1;
