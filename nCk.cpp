@@ -2,8 +2,9 @@
 #include<bits/stdc++.h>
 #define ll long long
 #define pii pair<int, int>
+#define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
-const int N=2e5, M=1e9+7;
+const int N=2e5+1, M=1e9+7;
 ll f[N], a[N]; vector<pii> v;
 
 inline ll mu(ll a, ll b, ll r=1){
@@ -13,11 +14,10 @@ inline ll mu(ll a, ll b, ll r=1){
     }return r;
 }
 inline void tienxuly(){ f[0]=1;
-    for(int i=1; i<N; ++i)
-        f[i]=f[i-1]*i%M;
+    fo(i,1,N) f[i]=f[i-1]*i%M;
     a[N-1]=mu(f[N-1], M-2);
-    for(int i=N-2; i>=0; --i)
-        a[i]=a[i+1]*(i+1)%M;
+    for(int i=N-1; i; --i)
+        a[i-1]=a[i]*i%M;
 }
 inline ll C(int n, int k){
     if(k<0 || k>n) return 0;
