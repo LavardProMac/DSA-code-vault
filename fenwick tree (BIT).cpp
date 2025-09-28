@@ -3,7 +3,7 @@ ll a[N], bit[N];
 
 inline void upd(int i, ll v){
     for(; i<=N; i+=i&-i) 
-        bit[i]=min(bit[i], v); //cập nhật min 
+        bit[i]=min(bit[i], v); //cập nhật ptu (dùng cho min prefix) 
         bit[i]+=v; //cập nhật phần tử
 }
 inline ll get(int i){ ll ans=9e18;
