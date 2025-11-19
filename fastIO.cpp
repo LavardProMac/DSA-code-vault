@@ -1,5 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long
+#define ld long double
+#define db double
 #define v vector
 #define vi v<int>
 #define vll vector<ll>
