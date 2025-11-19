@@ -10,6 +10,7 @@
 #define f first
 #define s second
 #define pb push_back
+#define eb emplace_back
 #define all(a) a.begin(), a.end()
 #define esc(s) return cout<<s, 0;
 #define hmap unordered_map
