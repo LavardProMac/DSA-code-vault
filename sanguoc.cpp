@@ -5,12 +5,12 @@ inline void sanguoc(){
     fo(i,1,N) for(int j=i; j<N; j+=i) ++a[j];
 }
 //O(N log log N)
-inline void sangSpf(){ spf[1]=1;
-    for(int i=2; i<N; i+=2) spf[i]=2;
-    for(int i=3; i<N; i+=2) if(!spf[i]){
-        spf[i]=i;
-        for(int j=i*i; j<N; j+=i<<1)
-            if(!spf[j]) spf[j]=i;
+void sangSpf(){
+    int pc=0; a[1]=1;
+    fo(i,2,N){
+        if(!a[i]) a[i]=i, p[pc++]=i;
+        for(ll j=0; j<pc && p[j]<=a[i] && i*p[j]<=N; ++j)
+            a[i*p[j]]=p[j];
     }
 }
 inline int cntDiv(int x, int res=1){
