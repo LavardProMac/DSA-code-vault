@@ -12,7 +12,7 @@
 #define pb push_back
 #define eb emplace_back
 #define all(a) a.begin(), a.end()
-#define esc(s) return cout<<s, 0;
+#define esc(s) return cout<<(s), 0
 #define hmap unordered_map
 #define hset unordered_set
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
