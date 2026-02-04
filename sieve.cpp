@@ -7,7 +7,7 @@ bitset<N> p;
 inline void sieve(){ p[2]=1;
     for(int i=3; i<N; i+=2) p[i]=1;
     for(int i=3; i<1001; i+=2) if(p[i])
-        for(int j=i*i; j<N; j+=i+i) p[j]=0;
+        for(int j=i*i, k=i<<1; j<N; j+=k) p[j]=0;
 }
 inline void sang(const int& n){ p[2]=1;
     for(int i=3; i<=n; i+=2) p[i]=1;
