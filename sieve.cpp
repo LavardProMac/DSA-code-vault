@@ -1,4 +1,4 @@
-//odd sieve O(n log log n/2)
+//odd sieve O(N/2 log log N)
 const int N=1e6;
 bitset<N+1> p;
 
@@ -19,7 +19,7 @@ void sieve(){
     for(int i=1001; i<=N; i+=2) if(!p[i]) v.pb(i);
 }
 
-//linear sieve O(n)
+//linear sieve O(N)
 const int N=1e6;
 int lp[N+1], pr[N+1];
 
