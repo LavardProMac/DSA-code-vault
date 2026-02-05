@@ -1,23 +1,32 @@
-using namespace std; const int N=1e6+1;
-int spf[N], a[N]; //spf : smallest prime factor
-//O(N log N)
+//sang uoc O(N log N)
+const int N=1e6;
+int a[N+1];
+
 inline void sanguoc(){
-    fo(i,1,N) for(int j=i; j<N; j+=i) ++a[j];
+    fo(i,1,N) for(int j=i; j<=N; j+=i) ++a[j];
 }
-//O(N log log N)
-void sangSpf(){
+
+//sang TSNT nho nhat O(N log log N)
+const int N=1e6;
+int a[N+1], p[N+1];
+
+void sangSPF(){
     int pc=0; a[1]=1;
     fo(i,2,N){
         if(!a[i]) a[i]=i, p[pc++]=i;
-        for(ll j=0; j<pc && p[j]<=a[i] && i*p[j]<=N; ++j)
+        for(int j=0; j<pc && p[j]<=a[i] && (ll)i*p[j]<=N; ++j)
             a[i*p[j]]=p[j];
     }
 }
-inline int cntDiv(int x, int res=1){
-    while(x>1){
-        int p=spf[x], cnt=1;
-        while(spf[x]==p)
-            x/=p, ++cnt;
-        res *= cnt;
-    }return res;
+
+//dem uoc bang sangSPF O(log N)
+int cntDiv(int n){
+    int res=1;
+    while(n>1){
+        int p=a[n], cnt=1;
+        while(a[n]==p)
+            n/=p, ++cnt;
+        res*=cnt;
+    }
+    return res;
 }
