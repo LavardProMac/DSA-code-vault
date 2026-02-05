@@ -1,5 +1,6 @@
-//sang uoc O(N log N)
 const int N=1e6;
+
+//sang uoc O(N log N)
 int a[N+1];
 
 inline void sanguoc(){
@@ -7,7 +8,6 @@ inline void sanguoc(){
 }
 
 //sang TSNT nho nhat O(N)
-const int N=1e6;
 int a[N+1], p[N+1];
 
 void sangSPF(){
