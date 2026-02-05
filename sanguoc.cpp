@@ -6,7 +6,7 @@ inline void sanguoc(){
     fo(i,1,N) for(int j=i; j<=N; j+=i) ++a[j];
 }
 
-//sang TSNT nho nhat O(N log log N)
+//sang TSNT nho nhat O(N)
 const int N=1e6;
 int a[N+1], p[N+1];
 
