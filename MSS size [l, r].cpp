@@ -8,7 +8,7 @@ int main(){
     int n, l, r; cin>>n>>l>>r;
     
     ll p[n+1], ans=-1e18; p[0]=0;
-    deque<ll> dq;
+    deque<int> dq;
     
     fo(i,1,n) cin>>p[i], p[i]+=p[i-1];
     
