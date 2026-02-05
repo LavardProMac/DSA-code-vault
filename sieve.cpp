@@ -1,23 +1,31 @@
-#include<bits/stdc++.h>
-#define ll long long
-#pragma GCC optimize("O3,unroll-loops")
-using namespace std; const int N=1e6+1;
-bitset<N> p;
+//odd sieve O(n log log n/2)
+const int N=1e6;
+bitset<N+1> p;
 
-inline void sieve(){ p[2]=1;
-    for(int i=3; i<N; i+=2) p[i]=1;
-    for(int i=3; i<1001; i+=2) if(p[i])
-        for(int j=i*i, k=i<<1; j<N; j+=k) p[j]=0;
+void sieve(){
+    for(int i=3; i<=1000; i+=2) if(!p[i])
+        for(int j=i*i, k=i<<1; j<=N; j+=k) p[j]=1;
 }
-inline void sang(const int& n){ p[2]=1;
-    for(int i=3; i<=n; i+=2) p[i]=1;
-    for(int i=3; i*i<=n; i+=2) if(p[i])
-        for(int j=i*i; j<=n; j+=i+i) p[j]=0;
+
+//odd sieve + vector
+const int N=1e6;
+bitset<N+1> p; vector<int> v={2};
+
+void sieve(){
+    for(int i=3; i<=1000; i+=2) if(!p[i]){
+        v.pb(i);
+        for(int j=i*i, k=i<<1; j<=N; j+=k) p[j]=1;
+    }
+    for(int i=1001; i<=N; i+=2) if(!p[i]) v.pb(i);
 }
-inline bool isP(const ll& n){
-    if(n<2) return 0; if(n<4) return 1;
-    if(!(n&1 && n%3)) return false;
-    for(int i=5, s=sqrt(n); i<=s; i+=6)
-        if(!(n%i && n%(i+2))) return 0;
-    return true;
-}
+
+//linear sieve O(n)
+const int N=1e6;
+int lp[N+1], pr[N+1];
+
+void sieve(){
+    fo(i,2,N){
+        if(!lp[i]) lp[i]=i, pr[++pc]=i;
+        for(int j=1; j<=pc && pr[j]<=lp[i] && i*pr[j]<=N; ++j)
+            lp[i*pr[j]]=pr[j];
+    }
