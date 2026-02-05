@@ -1,4 +1,5 @@
-inline int sdg(ll n, int d=0){
-    while(n) d+=n%10, n/=10;
-    return d;
+inline int sdg(ll n){
+    int cnt=n%10;
+    while(n/=10) cnt+=n%10;
+    return cnt;
 }
