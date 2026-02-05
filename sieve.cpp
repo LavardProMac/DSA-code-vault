@@ -1,5 +1,6 @@
-//odd sieve O(N/2 log log N)
 const int N=1e6;
+
+//odd sieve O(N/2 log log N)
 bitset<N+1> p;
 
 void sieve(){
@@ -8,7 +9,6 @@ void sieve(){
 }
 
 //odd sieve + vector
-const int N=1e6;
 bitset<N+1> p; vector<int> v={2};
 
 void sieve(){
@@ -20,12 +20,11 @@ void sieve(){
 }
 
 //linear sieve O(N)
-const int N=1e6;
-int lp[N+1], pr[N+1];
+int a[N+1], p[N+1];
 
 void sieve(){
     fo(i,2,N){
-        if(!lp[i]) lp[i]=i, pr[++pc]=i;
-        for(int j=1; j<=pc && pr[j]<=lp[i] && i*pr[j]<=N; ++j)
-            lp[i*pr[j]]=pr[j];
-    }
+        if(!a[i]) a[i]=i, p[++pc]=i;
+        for(int j=1; j<=pc && p[j]<=a[i] && i*p[j]<=N; ++j)
+            a[i*p[j]]=p[j];
+}
