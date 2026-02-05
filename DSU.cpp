@@ -1,22 +1,28 @@
 #include<bits/stdc++.h>
+#define ll long long
+#define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
-int p[1000005], s[1000005];
 
-inline void dsu(int n){
-    for(int i=0; i<n; ++i)
-        p[i]=i, s[i]=1;
+const int N=1e6+1;
+int p[N], s[N];
+
+inline void dsu(const int& n){
+    fo(i,1,n) p[i]=i, s[i]=1;
 }
-inline int find(int x){
+
+inline int find(const int& x){
     if(p[x]!=x) p[x]=find(p[x]);
     return p[x];
 }
+
 inline bool unite(int a, int b){
     a=find(a), b=find(b);
-    if(a==b) return 0;
+    if(a==b) return false;
     if(s[a]<s[b]) swap(a, b);
     p[b]=a, s[a]+=s[b];
-    return 1;
+    return true;
 }
-inline int get(int x){
+
+inline int get(const int& x){
     return s[f(x)];
 }
