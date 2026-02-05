@@ -5,8 +5,8 @@ using namespace std;
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    
     int n, k; cin>>n>>k;
+    
     ll p[n+1], ans=-1e18; p[0]=0;
     deque<int> dq={0};
     
