@@ -13,9 +13,7 @@ int main(){
     fo(i,1,n) cin>>p[i], p[i]+=p[i-1];
     
     fo(i,l,n){
-        int j=i-l;
-        
-        while(!dq.empty() && p[dq.back()]>=p[j])
+        while(!dq.empty() && p[dq.back()]>=p[i-l])
             dq.pop_back();
         
         dq.push_back(j);
