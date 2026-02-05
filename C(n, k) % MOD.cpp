@@ -1,26 +1,57 @@
-const int N=1e6, M=2024;
-ll p[N+1];
+#include<bits/stdc++.h>
+#define ll long long
+#define fo(i,j,n) for(int i=j; i<=n; ++i)
+using namespace std;
 
-ll Pow(ll a, ll b){
+const int N=1e6, M=2024;
+bitset<N+1> bs;
+int pr[N], pc=-1; ll e[N+1];
+
+void sieve(){
+    fo(i,2,N){
+        if(!bs[i]) pr[++pc]=i;
+        
+        for(int j=0; j<=pc && i*pr[j]<=N; ++j){
+            bs[i*pr[j]]=1;
+            if(i%pr[j]==0) break;
+        }
+    }
+}
+
+inline ll Pow(ll a, int b){
     ll res=1;
     for(; b; b>>=1, a=a*a%M)
         if(b&1) res=res*a%M;
     return res;
 }
 
-void tsnt(ll x, const int& d){
-    while(!(x&1)) x>>=1, p[2]+=d;
-    for(int i=3; i*i<=x; i+=2)
-        while(x%i==0) x/=i, p[i]+=d;
-    if(x>1) p[x]+=d;
+inline int lg(int n, const int& p){
+    int cnt=0;
+    while(n/=p) cnt+=n;
+    return cnt;
 }
 
-ll nCr(const int& n, const int& r){
-    if(r<0 || r>n) return 0;
+ll nCk(const int& n, int k){
+    if(k<0 || k>n) return 0;
+    if(k>n-k) k=n-k;
     ll res=1;
-    fo(i,n-r+1,n) tsnt(i, 1);
-    fo(i,1,r) tsnt(i, -1);
-    fo(i,2,1000) if(p[i]) 
-        res=res*Pow(i, p[i])%M, p[i]=0;
+    
+    fo(i,0,pc){
+        const int p=pr[i];
+        if(p>n) break;
+        
+        const int v=lg(n, p)-lg(k, p)-lg(n-k, p);
+        if(v) res=res*Pow(p, v)%M;
+    }
     return res;
+}
+
+int main(){
+    ios::sync_with_stdio(0); cin.tie(0);
+    
+    sieve();
+    int t, n, k; cin>>t;
+    
+    while(t--) cin>>n>>k,
+        cout<<nCk(n, k)<<'\n';
 }
