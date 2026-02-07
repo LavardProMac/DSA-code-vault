@@ -27,7 +27,7 @@ void sieve(){
     fo(i,2,N){
         if(!a[i]) a[i]=i, v[++pc]=i, p[i]=1;
         for(int j=1; j<=pc && v[j]<=a[i] && i*v[j]<=N; ++j)
-            a[i*p[j]]=v[j];
+            a[i*v[j]]=v[j];
     }
 }
 
