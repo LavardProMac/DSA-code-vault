@@ -27,4 +27,5 @@ void sieve(){
         if(!a[i]) a[i]=i, p[++pc]=i;
         for(int j=1; j<=pc && p[j]<=a[i] && i*p[j]<=N; ++j)
             a[i*p[j]]=p[j];
+    }
 }
