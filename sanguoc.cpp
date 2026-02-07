@@ -3,8 +3,9 @@ const int N=1e6;
 //sang uoc O(N log N)
 int a[N+1];
 
-inline void sanguoc(){
-    fo(i,1,N) for(int j=i; j<=N; j+=i) ++a[j];
+void sanguoc(){
+    fo(i,1,N)
+        for(int j=i; j<=N; j+=i) ++a[j];
 }
 
 //sang TSNT nho nhat O(N)
@@ -14,7 +15,7 @@ void sangSPF(){
     int pc=0; a[1]=1;
     fo(i,2,N){
         if(!a[i]) a[i]=i, p[pc++]=i;
-        for(int j=0; j<pc && p[j]<=a[i] && (ll)i*p[j]<=N; ++j)
+        for(int j=0; j<pc && p[j]<=a[i] && i*p[j]<=N; ++j)
             a[i*p[j]]=p[j];
     }
 }
