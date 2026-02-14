@@ -11,10 +11,7 @@ int main(){
     int x, y, z; cin>>x>>y>>z;
 
     fo(i,1,x) fo(j,1,y) fo(k,1,z)
-        cin>>a[i][j][k];
-
-    fo(i,1,x) fo(j,1,y) fo(k,1,z)
-        p[i][j][k]=
+        cin>>a[i][j][k], p[i][j][k]=
         
         p[i-1][j][k]-p[i-1][j][k-1]+
         p[i][j][k-1]-p[i-1][j-1][k]-
