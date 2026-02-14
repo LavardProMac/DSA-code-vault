@@ -1,4 +1,5 @@
-// Tính MAX sum mảng liên tiếp (cho phép số subarray <= k) O(n*k)
+// Tính Max sum mảng liên tiếp (cho phép số subarray <= K)
+// Đpt: O(N*K)
 
 #include<bits/stdc++.h>
 #define ll long long
