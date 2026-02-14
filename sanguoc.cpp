@@ -3,15 +3,24 @@ const int N=1e6;
 //sang uoc O(N log N)
 int a[N+1];
 
-void sanguoc(){
+void sangUoc(){
     fo(i,1,N)
         for(int j=i; j<=N; j+=i) ++a[j];
 }
 
-//sang TSNT nho nhat O(N)
-int a[N+1], p[N+1];
+//sang TSNT nho nhat O(N log log N)
+int a[N+1];
 
 void sangSPF(){
+    fo(i,2,N) if(!a[i])
+        for(int j=i; j<=N; j+=i)
+            if(!a[j]) a[j]=i;
+}
+
+//sang TSNT nho nhat tuyen tinh O(N)
+int a[N+1], p[N+1];
+
+void sangSPF_linear(){
     int pc=0; a[1]=1;
     fo(i,2,N){
         if(!a[i]) a[i]=i, p[pc++]=i;
