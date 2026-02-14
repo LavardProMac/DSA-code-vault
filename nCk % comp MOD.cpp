@@ -3,7 +3,7 @@
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=1e6, M=2024;
+const int N=1e6, M=2024; //M hợp số
 int pr[N], pc=-1;
 bitset<N+1> bs; ll e[N+1];
 
