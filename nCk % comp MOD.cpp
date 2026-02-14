@@ -4,13 +4,12 @@
 using namespace std;
 
 const int N=1e6, M=2024;
-bitset<N+1> bs;
-int pr[N], pc=-1; ll e[N+1];
+int pr[N], pc=-1;
+bitset<N+1> bs; ll e[N+1];
 
 void sieve(){
     fo(i,2,N){
         if(!bs[i]) pr[++pc]=i;
-        
         for(int j=0; j<=pc && i*pr[j]<=N; ++j){
             bs[i*pr[j]]=1;
             if(i%pr[j]==0) break;
@@ -33,8 +32,7 @@ inline int lg(int n, const int& p){
 
 ll nCk(const int& n, int k){
     if(k<0 || k>n) return 0;
-    if(k>n-k) k=n-k;
-    ll res=1;
+    if(k>n-k) k=n-k; ll res=1;
     
     fo(i,0,pc){
         const int p=pr[i];
@@ -48,9 +46,7 @@ ll nCk(const int& n, int k){
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    
-    sieve();
-    int t, n, k; cin>>t;
+    int t, n, k; cin>>t; sieve();
     
     while(t--) cin>>n>>k,
         cout<<nCk(n, k)<<'\n';
