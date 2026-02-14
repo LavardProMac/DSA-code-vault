@@ -11,7 +11,6 @@ using namespace std;
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-
     int n, k, x; cin>>n>>k;
 
     ll dp[k+1][2], ans=dp[0][0]=0;
