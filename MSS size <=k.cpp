@@ -1,26 +1,25 @@
 #include<bits/stdc++.h>
 #define ll long long
+#define Max(a,b) ({int v=b; a=a>v? a:v;})
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n, k; cin>>n>>k;
     
+    int n, k; cin>>n>>k
     ll p[n+1], ans=-1e18; p[0]=0;
-    deque<int> dq={0};
     
+    deque<int> dq={0};
     fo(i,1,n) cin>>p[i], p[i]+=p[i-1];
     
     fo(i,1,n){
         while(!dq.empty() && dq.front()<i-k)
             dq.pop_front();
-        
-        ans=max(ans, p[i]-p[dq.front()]);
+        Max(ans, p[i]-p[dq.front()]);
         
         while(!dq.empty() && p[dq.back()]>=p[i])
             dq.pop_back();
-        
         dq.push_back(i);
     }
     cout<<ans;
