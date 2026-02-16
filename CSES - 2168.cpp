@@ -3,11 +3,8 @@
 
 #include<bits/stdc++.h>
 #define ll long long
-#define esc(s) return cout<<(s), 0
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 #define fd(i,j,n) for(int i=j; i>=n; --i)
-#pragma GCC target("avx2,bmi2")
-#pragma GCC optimize("Ofast,unroll-loops")
 using namespace std;
 
 int l[200005], r[200005];
