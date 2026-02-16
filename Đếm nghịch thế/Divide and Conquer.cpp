@@ -1,7 +1,6 @@
-// Đếm số cặp (i, j) thỏa mãn: 
-// aj < ai với 1 ≤ j ≤ n
+// Sol 1: Chia để trị O(n log n)
+// Tối ưu khi ai <= 1e9
 
-//Sol 1: Chia để trị O(N log N)
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
