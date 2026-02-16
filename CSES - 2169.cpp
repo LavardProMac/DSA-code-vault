@@ -3,12 +3,8 @@
 
 #include<bits/stdc++.h>
 #define ll long long
-#define Max(a,b) ({int v=b; a=a>v? a:v;})
-#define esc(s) return cout<<(s), 0
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 #define fd(i,j,n) for(int i=j; i>=n; --i)
-#pragma GCC target("avx2,bmi2")
-#pragma GCC optimize("Ofast,unroll-loops")
 using namespace std;
 
 const int N=2e5+5;
