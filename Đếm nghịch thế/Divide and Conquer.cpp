@@ -1,5 +1,5 @@
-// Sol 1: Chia để trị O(n log n)
-// Tối ưu khi ai <= 1e9
+// Sol 1: Chia để trị O(N log N)
+// Tối ưu khi ai ≤ 1e9, với 1 ≤ i ≤ n
 
 #include<bits/stdc++.h>
 #define ll long long
@@ -9,7 +9,7 @@ using namespace std;
 const int N=1e6+1;
 int a[N], kq[N];
 
-ll tri(int l, int m, int r){
+ll cnt(int l, int m, int r){ // đếm nghịch thế = Merge sort
     int i=l, j=m+1, k=l; ll d=0; 
     
     while(i<=m && j<=r)
@@ -23,15 +23,15 @@ ll tri(int l, int m, int r){
     return d;
 }
 
-ll chia(int l, int r){
+ll solve(int l, int r){ // đệ quy đếm toàn bộ
     if(l>=r) return 0;
     const int m=l+r>>1;
-    return chia(l,m)+chia(m+1,r)+tri(l,m,r);
+    return solve(l, m)+solve(m+1, r)+cnt(l,m,r);
 }
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n; cin>>n;
     fo(i,0,n) cin>>a[i];
-    cout<<chia(0, n-1);
+    cout<<solve(0, n-1);
 }
