@@ -1,10 +1,12 @@
+// Tính Ckn % M, với M là hợp số O(N/log N)
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=1e6, M=2024; //M hợp số
-int pr[N], pc=-1;
+const int N=1e6;
+int pr[N], pc=-1, M; // M hợp số
 bitset<N+1> bs; ll e[N+1];
 
 void sieve(){
@@ -46,7 +48,7 @@ ll nCk(const int& n, int k){
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int t, n, k; cin>>t; sieve();
+    int t, n, k; cin>>t>>M; sieve();
     
     while(t--) cin>>n>>k,
         cout<<nCk(n, k)<<'\n';
