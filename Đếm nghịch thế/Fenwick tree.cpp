@@ -1,5 +1,5 @@
 // Sol 2: Fenwick tree O(n log N)
-// Tối ưu khi ai ≤ 1e6
+// Tối ưu khi ai ≤ 1e6, với 1 ≤ i ≤ n
 
 #include<bits/stdc++.h>
 #define ll long long
