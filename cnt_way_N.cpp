@@ -1,5 +1,6 @@
 // Đếm số cách tạo dãy có độ dài N sao cho:
 // a[1]*a[2]*...*a[N] == M
+// Đpt: O(N + sqrt M)
 
 #include<bits/stdc++.h>
 #define ll long long
