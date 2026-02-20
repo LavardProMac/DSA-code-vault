@@ -1,0 +1,2 @@
+Tính C(n, k) % M, với n, k ≤ 1e5 và M ≤ 1e9+7
+Link nộp: c.tmathcoding.vn/problem/tohop10
