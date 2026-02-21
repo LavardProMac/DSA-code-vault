@@ -5,7 +5,7 @@
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=1e6;
+const int N=1e5;
 int pr[N], pc=-1, M;
 bitset<N+1> bs; ll e[N+1];
 
