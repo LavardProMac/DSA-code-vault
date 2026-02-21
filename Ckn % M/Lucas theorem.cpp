@@ -6,7 +6,7 @@
 #define fd(i,j,n) for(int i=j; i>=n; --i)
 using namespace std;
 
-const int N=1e6; int M;
+const int N=1e5; int M;
 ll f[N+1], a[N+1];
 
 inline ll Pow(ll a, int b){
