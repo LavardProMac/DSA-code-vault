@@ -4,18 +4,18 @@
 using namespace std;
 
 const int N=1e6+1, LOG=20;
-int n, lg[N]; ll a[N], st[LOG][N];
+int n, lg[N]; ll a[N], st[N][LOG];
 
 void tienxuly(){
-    lg[1]=0; st[0][1]=a[1];
-    fo(i,2,n) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
+    lg[1]=0; st[1][0]=a[1];
+    fo(i,2,n) lg[i]=lg[i>>1]+1, st[i][0]=a[i];
     for(int k=1, t=2; t<=n; ++k, t<<=1) fo(i,1,n-t+1)
-        st[k][i]=min(st[k-1][i], st[k-1][i+(t>>1)]);
+        st[i][k]=min(st[i][k-1], st[i+(t>>1)][k-1]);
 }
 
 inline ll qry(const int& l, const int& r){
     const int j=lg[r-l+1];
-    return min(st[j][l], st[j][r-(1<<j)+1]);
+    return min(st[l][j], st[r-(1<<j)+1][j]);
 }
 
 int main(){
