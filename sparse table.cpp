@@ -7,7 +7,7 @@ const int N=1e6+1, LOG=20;
 int n, lg[N]; ll a[N], st[N][LOG];
 
 void tienxuly(){
-    lg[1]=0; st[1][0]=a[1];
+    st[1][0]=a[1];
     fo(i,2,n) lg[i]=lg[i>>1]+1, st[i][0]=a[i];
     for(int k=1, t=2; t<=n; ++k, t<<=1) fo(i,1,n-t+1)
         st[i][k]=min(st[i][k-1], st[i+(t>>1)][k-1]);
