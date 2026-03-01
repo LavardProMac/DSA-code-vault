@@ -5,7 +5,7 @@ ll Pow(ll a, int k, ll M){
     return res;
 }
 
-bool test(int a, ll n, int k, int m){
+bool kt(int a, ll n, int k, int m){
     ll x=Pow(a, m, n--);
     if(x==1 || x==n) return 0;
     
