@@ -15,7 +15,7 @@ int main(){
     int n, k, x; cin>>n>>k;
     ll dp[k+1][2], ans=dp[0][0]=0;
 
-    const ll N=-9e18; dp[0][1]=N;
+    const ll N=-1e18; dp[0][1]=N;
     fo(i,1,k) dp[i][0]=dp[i][1]=N;
 
     fo(i,1,n){ cin>>x; fd(j,k,1)
