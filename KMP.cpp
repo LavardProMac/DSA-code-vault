@@ -32,7 +32,7 @@ ll solve(int p, int k, int t){
     if(k==m) return 0;
     if(p==n) return 1;
 
-    ll res=dp[p][k][t];
+    ll &res=dp[p][k][t];
     if(res!=-1) return res;
     int l=t? x[p]-'a':25; res=0;
 
