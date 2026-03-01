@@ -1,4 +1,4 @@
-// Name: Weighted interval scheduling
+// Name: Projects (Weighted interval scheduling)
 // Source: cses.fi/problemset/task/1140
 
 #include<bits/stdc++.h>
