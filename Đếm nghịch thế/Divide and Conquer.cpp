@@ -9,7 +9,8 @@ using namespace std;
 const int N=1e6+1;
 int a[N], kq[N];
 
-ll cnt(int l, int m, int r){ // đếm nghịch thế = Merge sort
+// đếm nghịch thế = merge sort
+ll cnt(int l, int m, int r){
     int i=l, j=m+1, k=l; ll d=0; 
     
     while(i<=m && j<=r)
@@ -23,9 +24,10 @@ ll cnt(int l, int m, int r){ // đếm nghịch thế = Merge sort
     return d;
 }
 
-ll solve(int l, int r){ // đệ quy đếm toàn bộ
+// đệ quy đếm toàn bộ
+ll dq(int l, int r){
     if(l>=r) return 0; int m=l+r>>1;
-    return solve(l, m)+solve(m+1, r)+cnt(l,m,r);
+    return dq(l,m)+dq(m+1,r)+cnt(l,m,r);
 }
 
 int main(){
@@ -33,5 +35,5 @@ int main(){
     int n; cin>>n;
     fo(i,0,n) cin>>a[i];
     
-    cout<<solve(0, n-1);
+    cout<<dq(0, n-1);
 }
