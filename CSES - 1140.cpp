@@ -16,17 +16,16 @@ struct tp{
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     
-    int n; cin>>n; tp a[n+1];
+    int n, j; cin>>n; tp a[n+1];
     ll dp[n+1]; int p[n+1]; dp[0]=0;
     
     fo(i,1,n) cin>>a[i].l>>a[i].r>>a[i].p;
     sort(a+1, a+n+1);
     fo(i,1,n) p[i]=a[i].r;
     
-    fo(i,1,n){
-        ll t=a[i].p; int l=a[i].l;
-        int j=lower_bound(p+1, p+n+1, l)-p;
-        dp[i]=max(dp[i-1], dp[j-1]+t);
-    }
+    fo(i,1,n)
+        j=lower_bound(p+1, p+n+1, a[i].l)-p,
+        dp[i]=max(dp[i-1], dp[j-1]+a[i].p);
+    
     cout<<dp[n];
 }
