@@ -28,17 +28,17 @@ void build_kmp(){
     }
 }
 
-ll solve(int p, int k, int t){
+ll solve(int p, int k, bool t){
     if(k==m) return 0;
     if(p==n) return 1;
 
     ll &res=dp[p][k][t];
     if(res!=-1) return res;
-    int l=t? x[p]-'a':25; res=0;
+    
+    int l=t? x[p]-'a':25; res=0; ++p;
 
-    fo(c,0,l+1)
-        res=(res+solve(p+1, go[k][c], t&&c==l))%M;
-    return res;
+    fo(c,0,l) res=(res+solve(p, go[k][c], 0))%M;
+    return res=(res+solve(p, go[k][l], t))%M;
 }
 
 ll dfs(const string &st){
