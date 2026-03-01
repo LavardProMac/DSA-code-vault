@@ -26,7 +26,7 @@ int main(){
     fo(i,1,n){
         ll t=a[i].p; int l=a[i].l;
         int j=lower_bound(p+1, p+n+1, l)-p;
-        dp[i]=max(dp[i-1], t+dp[j-1]);
+        dp[i]=max(dp[i-1], dp[j-1]+t);
     }
     cout<<dp[n];
 }
