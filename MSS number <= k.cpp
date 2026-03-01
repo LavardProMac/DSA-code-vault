@@ -11,10 +11,12 @@ using namespace std;
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n, k, x; cin>>n>>k;
 
+    int n, k, x; cin>>n>>k;
     ll dp[k+1][2], ans=dp[0][0]=0;
-    fo(i,0,k) dp[i][0]=dp[i][1]=-9e18;
+
+    const ll N=-9e18; dp[0][1]=N;
+    fo(i,1,k) dp[i][0]=dp[i][1]=N;
 
     fo(i,1,n){ cin>>x; fd(j,k,1)
         Max(dp[j][1], dp[j-1][0]),
