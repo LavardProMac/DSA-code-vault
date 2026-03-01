@@ -24,8 +24,7 @@ ll cnt(int l, int m, int r){ // đếm nghịch thế = Merge sort
 }
 
 ll solve(int l, int r){ // đệ quy đếm toàn bộ
-    if(l>=r) return 0;
-    const int m=l+r>>1;
+    if(l>=r) return 0; int m=l+r>>1;
     return solve(l, m)+solve(m+1, r)+cnt(l,m,r);
 }
 
@@ -33,5 +32,6 @@ int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n; cin>>n;
     fo(i,0,n) cin>>a[i];
+    
     cout<<solve(0, n-1);
 }
