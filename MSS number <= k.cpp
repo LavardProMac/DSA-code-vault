@@ -16,13 +16,11 @@ int main(){
     ll dp[k+1][2], ans=dp[0][0]=0;
     fo(i,0,k) dp[i][0]=dp[i][1]=-9e18;
 
-    fo(i,1,n){ cin>>x;
-        fd(j,k,1)
-            Max(dp[j][1], dp[j-1][0]),
-            Max(dp[j][0], dp[j][1]+=x);
+    fo(i,1,n){ cin>>x; fd(j,k,1)
+        Max(dp[j][1], dp[j-1][0]),
+        Max(dp[j][0], dp[j][1]+=x);
     }
     fo(j,0,k) Max(ans,
         max(dp[j][0], dp[j][1]));
-
     cout<<ans;
 }
