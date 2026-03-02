@@ -34,19 +34,19 @@ void preprocess(){
     dp3[1][1]=dp3[2][1]=0; dp3[2][0]=2;
     // khởi tạo base-case
     
-    fo(i,3,500) dp1[i]=dp1[i-1]+dp1[i-2]+dp1[i-3];
-    // tính số cách từ chùa xuống thung lũng (1)
-    
-    fo(i,3,500) dp2[i]=dp2[i-1]+dp2[i-2]+dp2[i-3];
-    // tính số cách từ thung lũng lên núi (2)
-    
     fo(i,3,500)
-        dp3[i][0]=dp3[i-1][0]+dp3[i-2][0],
-        dp3[i][1]=dp3[i-1][1]+dp3[i-2][1]+dp3[i-3][0];
-    // tính số cách từ núi xuống thung lũng (3)
+        dp1[i]=dp1[i-1]+dp1[i-2]+dp1[i-3],
+        // tính số cách từ chùa xuống thung lũng (1)
     
-    fo(i,2,500) dp4[i]=dp4[i-1]+dp4[i-2];
-    // tính số cách từ thung lũng lên chùa (4)
+        dp2[i]=dp2[i-1]+dp2[i-2]+dp2[i-3],
+        // tính số cách từ thung lũng lên núi (2)
+    
+        dp3[i][0]=dp3[i-1][0]+dp3[i-2][0],
+        dp3[i][1]=dp3[i-1][1]+dp3[i-2][1]+dp3[i-3][0],
+        // tính số cách từ núi xuống thung lũng (3)
+    
+        dp4[i]=dp4[i-1]+dp4[i-2],
+        // tính số cách từ thung lũng lên chùa (4)
 }
 
 string mul(string a, string b){
