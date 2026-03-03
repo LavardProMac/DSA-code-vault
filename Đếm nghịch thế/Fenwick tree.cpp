@@ -24,7 +24,7 @@ int main(){
     
     for(int i=n; i; --i)
         cnt+=sum(a[i]-1), upd(a[i]);     
-    // tính tổng dãy bit[1, a[i]) và tăng bit[a[i]] lên 1 đơn vị
+    // tính tổng bit[1, a[i]) và tăng bit[a[i]] lên 1 đơn vị
     // vì duyệt ngược mảng a nên trở thành đếm nghịch thế
     
     cout<<cnt;
