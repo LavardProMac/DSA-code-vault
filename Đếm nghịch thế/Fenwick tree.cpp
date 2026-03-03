@@ -5,7 +5,6 @@
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
-
 const int N=1e6; int n, bit[N+1];
 
 void upd(int i){
