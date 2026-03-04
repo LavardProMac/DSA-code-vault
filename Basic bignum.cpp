@@ -24,8 +24,33 @@ string sub(string a, string b){
     return a.substr(i);
 }
 
+// hàm nhân xâu với 1 số nguyên O(N)
+string mul(string a, ll b){
+    int n=a.size()-1; ll c=0;
+    reverse(a.begin(), a.end());
+    
+    fo(i,0,n) c+=b*(a[i]-48),
+        a[i]=c%10+48, c/=10;
+        
+    while(c) a+=c%10+48, c/=10;
+    reverse(a.begin(), a.end());
+    return a;
+}
+
+// hàm chia xâu cho 1 số nguyên O(N)
+string Div(string a, ll b){
+    string s; ll r=0;
+    int n=a.size()-1, i=0;
+    
+    fo(i,0,n) r=r*10+a[i]-48,
+        s.push_back(r/b+48), r%=b;
+    
+    while(i<n && s[i]==48) ++i;
+    return s.substr(i);
+}
+
 // hàm nhân 2 xâu O(N·M)
-string mul(string a, string b){
+string Mul(string a, string b){
     int n=a.size(), m=b.size();
     int p=n+m, t[p+2]={}; string s;
     
@@ -37,16 +62,4 @@ string mul(string a, string b){
     
     while(--p) s.push_back(t[p]+48);
     return s;
-}
-
-// hàm chia xâu cho 1 số nguyên O(N)
-string Div(string a, int k){
-    string s; ll r=0;
-    int n=a.size()-1, i=0;
-    
-    fo(i,0,n) r=r*10+a[i]-48,
-        s.push_back(r/k+48), r%=k;
-    
-    while(i<n && s[i]==48) ++i;
-    return s.substr(i);
 }
