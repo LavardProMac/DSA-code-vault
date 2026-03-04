@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-#define ll long long
-using namespace std;
 const int base=1000000000;
 const int base_digits=9;
 
@@ -310,18 +307,3 @@ struct bigint{
         return res;
     }
 };
-bigint mul(bigint a, bigint b, int c){
-    if(b==0) return 0;
-    bigint x=mul(a, b/2, c);
-    if(b%2==0)
-        return (x+x)%c;
-    else return (x+x+a)%c;
-}
-
-int main(){
-    ios::sync_with_stdio(0); cin.tie(0);
-    string A, B; int c;
-    cin >> A >> B >> c;
-    bigint a(A); bigint b(B);
-    cout << mul(a, b, c);
-}
