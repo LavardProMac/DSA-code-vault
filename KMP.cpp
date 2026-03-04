@@ -1,5 +1,5 @@
-// Đếm số xâu t ∈ [s1, s2] t/m t ko chứa substr là bad (MOD 1e9+7)
-// |t|=|s1|=|s2|=n, 1 ≤ n ≤ 500
+// Đếm số xâu t ∈ [s1, s2] sao cho t không nhận bad làm substr.
+// Giới hạn: |t|=|s1|=|s2|=n, 1 ≤ n ≤ 500
 // Nguồn: codeforces.com/group/py59YCge5m/contest/674405/problem/D
 
 #include<bits/stdc++.h>
