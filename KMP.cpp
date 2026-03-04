@@ -12,7 +12,7 @@ int n, m; string bad, x;
 int lps[55], go[55][26];
 ll dp[505][55][2];
 
-void build_kmp(){
+void build_KMP(){
     fo(i,1,m){
         int j=lps[i-1];
         while(j && bad[i]!=bad[j]) j=lps[j-1];
@@ -52,7 +52,7 @@ int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     string s, t; cin>>n>>s>>t>>bad;
 
-    m=bad.size(); build_kmp();
+    m=bad.size(); build_KMP();
     ll ans=dfs(t); int i=n;
     
     while(i && s[i-1]=='a') s[--i]='z';
