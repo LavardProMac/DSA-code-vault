@@ -6,8 +6,7 @@
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=1e5+1;
-int n, m; ll st[4*N], lz[4*N];
+ll st[400001], lz[400001];
 
 void build(int id,int l,int r){
     if(!lz[id]) return;
@@ -49,11 +48,10 @@ ll get(int id,int l,int r,int u,int v){
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int t, l, r; ll k; cin>>n>>m;
+    int n, q, t, l, r; ll k; cin>>n>>q;
 
-    while(m--){
-        cin>>t>>l>>r;
-        
+    while(q--){ cin>>t>>l>>r;
+            
         if(!t) cin>>k, upd(1,1,n,l,r,k);
         else cout<<get(1,1,n,l,r)<<'\n';
     }
