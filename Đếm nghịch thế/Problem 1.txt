@@ -1,2 +1,2 @@
 Đếm số cặp (i, j) thỏa mãn: aj < ai, với 1 ≤ i ≤ j ≤ n
-Link nộp: dethi.nguyenphong.me/problem/hsg_dongthap_2024_c4
+Nguồn: dethi.nguyenphong.me/problem/hsg_dongthap_2024_c4
