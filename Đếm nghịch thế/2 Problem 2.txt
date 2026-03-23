@@ -1,0 +1,4 @@
+Có Q truy vấn, mỗi truy vấn đếm số cặp nghịch thế trong đoạn [L, R].
+Sub 1: n <= 1e3
+Sub 2: n <= 1e5
+Nguồn: c.tmathcoding.vn/contest/9c1230326/task/0
