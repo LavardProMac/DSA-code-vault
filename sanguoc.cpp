@@ -12,11 +12,12 @@ void sangUoc(){
 int a[N+1];
 
 void sangSPF(){
-    fo(i,2,N) if(!a[i]){
+    fo(i,2,1000) if(!a[i]){
         a[i]=i;
-        for(ll j=(ll)i*i; j<=N; j+=i)
+        for(int j=i*i; j<=N; j+=i)
             if(!a[j]) a[j]=i;
     }
+    fo(i,1001,N) if(!a[i]) a[i]=i;
 }
 
 //sang TSNT nho nhat tuyen tinh O(N)
