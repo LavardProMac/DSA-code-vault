@@ -43,3 +43,11 @@ int cntDiv(int n){
     }
     return res;
 }
+
+//ptich tsnt O(log N)
+void tsnt(int x){
+    while(x>1){
+        int k=a[x];
+        while(x%k==0) x/=k, ++c[k];
+    }
+}
