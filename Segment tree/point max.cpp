@@ -1,3 +1,5 @@
+// Source: oj.vnoi.info/problem/segtree_itez1
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
