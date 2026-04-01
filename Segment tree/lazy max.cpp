@@ -45,7 +45,6 @@ void upd(int id,int l,int r,int u,int v,int k){
 ll get(int id,int l,int r,int u,int v){
     if(r<u || l>v) return -9e18;
     if(u<=l && r<=v) return st[id];
-    
     push(id); int m=l+r>>1;
     
     return max(get(id<<1,l,m,u,v),
@@ -61,7 +60,6 @@ int main(){
 
     while(q--){
         cin>>t>>l>>r;
-
         if(t==1) cin>>k, upd(1,1,n,l,r,k);
         else cout<<get(1,1,n,l,r)<<'\n';
     }
