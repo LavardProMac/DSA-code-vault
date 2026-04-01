@@ -28,7 +28,7 @@ void push(int id){
     lz[id]=0;
 }
 
-void upd(int id,int l,int r,int u,int v,ll k){
+void upd(int id,int l,int r,int u,int v,int k){
     if(r<u || l>v) return;
     if(u<=l && r<=v){
         st[id]+=k; lz[id]+=k; return;
@@ -43,7 +43,7 @@ void upd(int id,int l,int r,int u,int v,ll k){
 }
 
 ll get(int id,int l,int r,int u,int v){
-    if(r<u || l>v) return LLONG_MIN;
+    if(r<u || l>v) return -9e18;
     if(u<=l && r<=v) return st[id];
     
     push(id); int m=l+r>>1;
