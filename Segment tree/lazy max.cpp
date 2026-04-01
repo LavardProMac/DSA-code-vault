@@ -12,9 +12,7 @@ void build(int id, int l, int r){
     if(l==r) {st[id]=a[l]; return;}
     int m=l+r>>1, k=id<<1;
 
-    build(k, l, m);
-    build(k|1, m+1, r);
-
+    build(k,l,m); build(k|1,m+1,r);
     st[id]=max(st[k], st[k|1]);
 }
 
@@ -27,7 +25,6 @@ void push(int id){
 
     lz[k]+=lz[id];
     lz[k|1]+=lz[id];
-
     lz[id]=0;
 }
 
@@ -38,10 +35,10 @@ void upd(int id,int l,int r,int u,int v,ll k){
     }
     push(id);
     int m=l+r>>1, t=id<<1;
-
+    
     upd(t, l, m, u, v, k);
     upd(t|1, m+1, r, u, v, k);
-
+    
     st[id]=max(st[t], st[t|1]);
 }
 
