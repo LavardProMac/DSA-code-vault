@@ -48,7 +48,6 @@ void upd(int id,int l,int r,int u,int v,ll k){
 ll get(int id, int l, int r, int u, int v){
     if(r<u || l>v) return 0;
     if(u<=l && r<=v) return st[id];
-    
     push(id, l, r); int m=l+r>>1;
     
     return get(id<<1,l,m,u,v)+
@@ -61,7 +60,6 @@ int main(){
 
     while(q--){
         cin>>t>>l>>r;
-        
         if(!t) cin>>k, upd(1,1,n,l,r,k);
         else cout<<get(1,1,n,l,r)<<'\n';
     }
