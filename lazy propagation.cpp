@@ -5,7 +5,6 @@
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
-
 ll st[400001], lz[400001];
 
 void build(int id, int l, int r){
@@ -30,7 +29,7 @@ void upd(int id,int l,int r,int u,int v,ll k){
     build(id, l, r);
     int m=l+r>>1, t=id<<1;
 
-    upd(k, l, m, u, v, k);
+    upd(t, l, m, u, v, k);
     upd(t|1, m+1, r, u, v, k);
 
     st[id]=st[t]+st[t|1];
@@ -41,7 +40,9 @@ ll get(int id,int l,int r,int u,int v){
     if(u<=l && r<=v) return st[id];
     
     build(id, l, r); int m=l+r>>1;
-    return get(k,l,m,u,v)+get(k|1,m+1,r,u,v);
+    
+    return get(id<<1,l,m,u,v)+
+           get(id<<1|1,m+1,r,u,v);
 }
 
 int main(){
@@ -50,6 +51,7 @@ int main(){
 
     while(q--){
         cin>>t>>l>>r;
+        
         if(!t) cin>>k, upd(1,1,n,l,r,k);
         else cout<<get(1,1,n,l,r)<<'\n';
     }
