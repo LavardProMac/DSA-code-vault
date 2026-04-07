@@ -22,7 +22,7 @@ inline int cnt_div(ll n){
     return n>1? res<<1:res;
 }
 // O(sqrt N/log N)
-inline int cnt_div(int n){
+inline int cnt_div(ll n){
     int ans=1;
     
     for(int i:v){
