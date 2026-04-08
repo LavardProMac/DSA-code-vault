@@ -1,10 +1,11 @@
+// source: c.tmathcoding.vn/contest/9c1060426/task/9
+// brute-force
+
 #include<bits/stdc++.h>
 typedef long long ll;
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
-
-const int N=2e5+5;
-ll sf[N], pf[N];
+ll sf[25], pf[25];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
