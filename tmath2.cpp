@@ -1,4 +1,6 @@
-// KMP
+// Source: c.tmathcoding.vn/contest/9c1060426/task/9
+// KMP O(N*|S|+|T|)
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
