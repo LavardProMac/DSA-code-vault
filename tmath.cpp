@@ -1,5 +1,5 @@
 // source: c.tmathcoding.vn/contest/9c1060426/task/9
-// brute-force
+// brute-force O(|S|*|T|*N)
 
 #include<bits/stdc++.h>
 typedef long long ll;
