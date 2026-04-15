@@ -10,7 +10,7 @@ int a[N]; ll st[N<<2], lz[N<<2];
 
 void build(int id, int l, int r){
     if(l==r) {st[id]=a[l]; return;}
-    int m=l+r>>1, k=id<<1;
+    const int m=l+r>>1, k=id<<1;
 
     build(k,l,m); build(k|1,m+1,r);
     st[id]=max(st[k], st[k|1]);
@@ -18,13 +18,10 @@ void build(int id, int l, int r){
 
 void push(int id){
     if(!lz[id]) return;
-    int k=id<<1;
+    const int k=id<<1, v=lz[id];
 
-    st[k]+=lz[id];
-    st[k|1]+=lz[id];
-
-    lz[k]+=lz[id];
-    lz[k|1]+=lz[id];
+    st[k]+=v; st[k|1]+=v;
+    lz[k]+=v; lz[k|1]+=v;
     lz[id]=0;
 }
 
@@ -34,19 +31,18 @@ void upd(int id,int l,int r,int u,int v,int k){
         st[id]+=k; lz[id]+=k; return;
     }
     push(id);
-    int m=l+r>>1, t=id<<1;
+    const int m=l+r>>1, t=id<<1;
     
     upd(t, l, m, u, v, k);
     upd(t|1, m+1, r, u, v, k);
-    
     st[id]=max(st[t], st[t|1]);
 }
 
 ll get(int id,int l,int r,int u,int v){
     if(r<u || l>v) return -9e18;
     if(u<=l && r<=v) return st[id];
-    push(id); int m=l+r>>1;
     
+    push(id); int m=l+r>>1;
     return max(get(id<<1,l,m,u,v),
                get(id<<1|1,m+1,r,u,v));
 }
