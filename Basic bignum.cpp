@@ -12,7 +12,7 @@ string add(string a, string b){
 }
 
 // hàm trừ 2 xâu O(N) (a ≥ b)
-string sub(string a, string b){
+string sub(const string& a, const string& b){
     int n=a.size()-1, i=0;
     int m=b.size()-1, c=0, t;
     
@@ -24,7 +24,7 @@ string sub(string a, string b){
     return a.substr(i);
 }
 
-// hàm nhân xâu với 1 số nguyên O(N)
+// hàm nhân xâu với 1 số tự nhiên O(N)
 string mul(string a, ll b){
     int n=a.size()-1; ll c=0;
     reverse(a.begin(), a.end());
@@ -37,8 +37,8 @@ string mul(string a, ll b){
     return a;
 }
 
-// hàm chia xâu cho 1 số nguyên O(N)
-string Div(string a, ll b){
+// hàm chia xâu cho 1 số tự nhiên O(N)
+string Div(const string& a, const ll& b){
     string s; ll r=0;
     int n=a.size()-1, i=0;
     
@@ -49,8 +49,15 @@ string Div(string a, ll b){
     return s.substr(i);
 }
 
-// hàm nhân 2 xâu O(N·M)
-string Mul(string a, string b){
+// hàm chia lấy dư xâu cho 1 số tự nhiên O(N)
+ll mod(const string& s, const ll& M){
+    ll rem=0;
+    for(char c:s) rem=(rem*10+c-48)%M;
+    return rem;
+}
+
+// hàm nhân 2 xâu O(N.M)
+string Mul(const string& a, const string& b){
     int n=a.size(), m=b.size();
     int p=n+m, t[p+2]={}; string s;
     
