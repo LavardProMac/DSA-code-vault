@@ -24,6 +24,28 @@ string sub(const string& a, const string& b){
     return a.substr(i);
 }
 
+// hàm cộng xâu thêm 1 đơn vị O(N)
+string add1(string s){
+    int i=s.size()-1;
+    while(i>=0 && s[i]==57) s[i--]=48;
+    
+    if(i>=0) ++s[i];
+    else s='1'+s;
+    return s;
+}
+
+// hàm trừ xâu đi 1 đơn vị O(N)
+string sub1(string s){
+    if(s=="0") return "0";
+    int i=s.size()-1;
+    
+    while(s[i]==48) s[i--]=57;
+    int p=0; --s[i];
+    
+    while(p+1<s.size() && s[p]==48) ++p;
+    return s.substr(p);
+}
+
 // hàm nhân xâu với 1 số tự nhiên O(N)
 string mul(string a, ll b){
     int n=a.size()-1; ll c=0;
