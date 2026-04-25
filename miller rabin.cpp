@@ -1,5 +1,5 @@
 ll Pow(ll a, int k, ll M){
-    ll r=1; a%=n;
+    ll res=1; a%=M;
     for(; k; k>>=1, a=a*a%M)
         if(k&1) res=res*a%M;
     return res;
