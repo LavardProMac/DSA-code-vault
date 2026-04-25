@@ -1,5 +1,5 @@
 // Câu 4 Phan 2024-2025 (Cổ phiếu)
-// Link đề: www.chuyentin.pro/2024/06/e-thi-tuyen-sinh-lop-10-chuyen-tin_13.html
+// Source: c.tmathcoding.vn/contest/9c1200426/task/3
 
 #include<bits/stdc++.h>
 #define ll long long
