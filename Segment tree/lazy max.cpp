@@ -38,7 +38,7 @@ void upd(int id,int l,int r,int u,int v,int k){
     st[id]=max(st[t], st[t|1]);
 }
 
-ll get(int id,int l,int r,int u,int v){
+ll get(int id, int l, int r, int u, int v){
     if(r<u || l>v) return -9e18;
     if(u<=l && r<=v) return st[id];
     
@@ -52,7 +52,7 @@ int main(){
     int n, q, t, l, r, k; cin>>n;
     
     fo(i,1,n) cin>>a[i];
-    build(1,1,n); cin>>q;
+    build(1, 1, n); cin>>q;
 
     while(q--){
         cin>>t>>l>>r;
