@@ -40,7 +40,7 @@ int main(){
     int n, q, t, l, r; cin>>n;
     
     fo(i,1,n) cin>>a[i];
-    build(1,1,n); cin>>q;
+    build(1, 1, n); cin>>q;
 
     while(q--){
         cin>>t>>l>>r;
