@@ -10,6 +10,7 @@ int n, lg[N], a[N], st[20][N];
 void tienxuly(){
     st[0][1]=a[1];
     fo(i,2,n) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
+
     for(int k=1, t=2; t<=n; ++k, t<<=1) fo(i,1,n-t+1)
         st[k][i]=f(st[k-1][i], st[k-1][i+(t>>1)]);
 }
