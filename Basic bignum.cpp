@@ -12,7 +12,7 @@ string add(string a, string b){
 }
 
 // hàm trừ 2 xâu O(N) (a ≥ b)
-string sub(const string& a, const string& b){
+string sub(string a, const string& b){
     int n=a.size()-1, i=0;
     int m=b.size()-1, c=0, t;
     
