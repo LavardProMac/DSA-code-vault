@@ -23,6 +23,10 @@ inline int qry(int l, int r){
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int q, l, r; cin>>n>>q;
-    fo(i,1,n) cin>>a[i]; tienxuly();
-    while(q--) cin>>l>>r, cout<<qry(l, r)<<'\n';
+    
+    fo(i,1,n) cin>>a[i];
+    tienxuly();
+    
+    while(q--) cin>>l>>r,
+        cout<<qry(l, r)<<'\n';
 }
