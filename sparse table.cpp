@@ -7,7 +7,7 @@ using namespace std;
 const int N=1e6+1;
 int n, lg[N], a[N], st[20][N];
 
-void tienxuly(){
+void build(){
     st[0][1]=a[1];
     fo(i,2,n) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
 
@@ -25,7 +25,7 @@ int main(){
     int q, l, r; cin>>n>>q;
     
     fo(i,1,n) cin>>a[i];
-    tienxuly();
+    build();
     
     while(q--) cin>>l>>r,
         cout<<qry(l, r)<<'\n';
