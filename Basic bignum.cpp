@@ -18,7 +18,7 @@ string sub(string a, const string& b){
     
     fo(i,0,n) t=a[n-i]-48-c-
         (i<=m? b[m-i]-48:0),
-        a[n-i]=(c=t<0)? t+58:t+48;
+        a[n-i]=t+48+10*(c=t<0);
 
     while(i<n && a[i]==48) ++i;
     return a.substr(i);
@@ -29,8 +29,7 @@ string add1(string s){
     int i=s.size()-1;
     while(i>=0 && s[i]==57) s[i--]=48;
     
-    if(i>=0) ++s[i];
-    else s='1'+s;
+    i>=0? ++s[i]:s='1'+s;
     return s;
 }
 
