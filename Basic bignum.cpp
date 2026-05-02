@@ -1,8 +1,9 @@
 // hàm cộng 2 xâu O(N)
 string add(string a, string b){
+    if(a<b) swap(a, b);
+    
     int n=a.size()-1;
     int m=b.size()-1, c=0;
-    if(n<m) swap(a, b), swap(n, m);
     
     fo(i,0,n) c+=a[n-i]-48+
         (i<=m? b[m-i]-48:0),
@@ -27,9 +28,13 @@ string sub(string a, const string& b){
 // hàm cộng xâu thêm 1 đơn vị O(N)
 string add1(string s){
     int i=s.size()-1;
-    while(i>=0 && s[i]==57) s[i--]=48;
     
-    i>=0? ++s[i]:s='1'+s;
+    while(i>=0 && s[i]==57)
+        s[i--]=48;
+    
+    if(i>=0) ++s[i];
+    else s='1'+s;
+    
     return s;
 }
 
