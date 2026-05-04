@@ -1,41 +1,41 @@
-// Source: lqdoj.edu.vn/problem/sumq
+// Source: cses.fi/problemset/task/1651
 
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
-
-const int N=1e5+1;
+ 
+const int N=2e5+1;
 int a[N]; ll st[N<<2], lz[N<<2];
-
+ 
 void build(int id, int l, int r){
     if(l==r) {st[id]=a[l]; return;}
     int m=l+r>>1, k=id<<1;
-
+ 
     build(k,l,m); build(k|1,m+1,r);
     st[id]=st[k]+st[k|1];
 }
-
+ 
 inline void push(int id, int l, int r){
     if(!lz[id]) return;
     int m=l+r>>1, k=id<<1; ll v=lz[id];
-
+ 
     st[k]+=v*(m-l+1); st[k|1]+=v*(r-m);
     lz[k]+=v; lz[k|1]+=v; lz[id]=0;
 }
-
-void upd(int id, int l, int r, int u, int v, ll k){
+ 
+void upd(int id, int l, int r, int u, int v, int k){
     if(r<u || l>v) return;
-
+ 
     if(u<=l && r<=v){
         st[id]+=k*(r-l+1); lz[id]+=k; return;
     }
     int m=l+r>>1, t=id<<1; push(id, l, r);
     upd(t,l,m,u,v,k); upd(t|1,m+1,r,u,v,k);
-
+ 
     st[id]=st[t]+st[t|1];
 }
-
+ 
 ll get(int id, int l, int r, int u, int v){
     if(r<u || l>v) return 0;
     if(u<=l && r<=v) return st[id];
@@ -43,14 +43,16 @@ ll get(int id, int l, int r, int u, int v){
     int m=l+r>>1, k=id<<1; push(id, l, r);
     return get(k,l,m,u,v)+get(k|1,m+1,r,u,v);
 }
-
+ 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n, q; cin>>n>>q;
-
+    
+    fo(i,1,n) cin>>a[i];
+    build(1, 1, n);
+ 
     while(q--){
-        int t, l, r; ll k; cin>>t>>l>>r;
-        if(!t) cin>>k, upd(1,1,n,l,r,k);
-        else cout<<get(1,1,n,l,r)<<'\n';
+        int t, l, r, k; cin>>t>>l;
+        if(t==1) cin>>r>>k, upd(1,1,n,l,r,k);
+        else cout<<get(1,1,n,l,l)<<'\n';
     }
-}
