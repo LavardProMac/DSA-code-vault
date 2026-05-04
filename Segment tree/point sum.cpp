@@ -16,7 +16,7 @@ void build(int id, int l, int r){
     st[id]=st[k]+st[k|1];
 }
 
-void upd(int id,int l,int r,int p,int v){
+void upd(int id, int l, int r, int p, int v){
     if(l==r) {st[id]=v; return;}
     int m=l+r>>1, k=id<<1;
 
@@ -26,7 +26,7 @@ void upd(int id,int l,int r,int p,int v){
     st[id]=st[k]+st[k|1];
 }
 
-ll get(int id,int l,int r,int u,int v){
+ll get(int id, int l, int r, int u, int v){
     if(r<u || l>v) return 0;
     if(u<=l && r<=v) return st[id];
     
