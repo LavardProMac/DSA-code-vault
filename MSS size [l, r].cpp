@@ -16,7 +16,7 @@ int main(){
     fo(i,l,n){
         while(!dq.empty() && p[dq.back()]>=p[i-l])
             dq.pop_back();
-        dq.push_back(i);
+        dq.push_back(i-l);
         
         while(!dq.empty() && dq.front()<i-r)
             dq.pop_front();
