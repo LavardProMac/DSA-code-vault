@@ -1,4 +1,3 @@
-// Name: Range updates and sums
 // Source: lqdoj.edu.vn/problem/sumq
 
 #include<bits/stdc++.h>
