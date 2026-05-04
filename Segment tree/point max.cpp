@@ -16,12 +16,12 @@ void build(int id, int l, int r){
     st[id]=max(st[k], st[k|1]);
 }
 
-void upd(int id,int l,int r,int pos,int val){
-    if(l==r) {st[id]=val; return;}
+void upd(int id,int l,int r,int p,int v){
+    if(l==r) {st[id]=v; return;}
     int m=l+r>>1, k=id<<1;
 
-    if(pos<=m) upd(k, l, m, pos, val);
-    else upd(k|1, m+1, r, pos, val);
+    if(p<=m) upd(k, l, m, p, v);
+    else upd(k|1, m+1, r, p, v);
 
     st[id]=max(st[k], st[k|1]);
 }
