@@ -1,11 +1,11 @@
-// Source: oj.vnoi.info/problem/segtree_itez2
+// Source: cses.fi/problemset/task/1648
 
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=1e5+5;
+const int N=2e5+5;
 int a[N]; ll st[N<<2];
 
 void build(int id, int l, int r){
@@ -37,6 +37,9 @@ ll get(int id, int l, int r, int u, int v){
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n, q; cin>>n>>q;
+    
+    fo(i,1,n) cin>>a[i];
+    build(1, 1, n);
 
     while(q--){
         int t, l, r; cin>>t>>l>>r;
