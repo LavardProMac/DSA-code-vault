@@ -16,7 +16,7 @@ void build(int id, int l, int r){
     st[id]=max(st[k], st[k|1]);
 }
 
-void upd(int id,int l,int r,int p,int v){
+void upd(int id, int l, int r, int p, int v){
     if(l==r) {st[id]=v; return;}
     int m=l+r>>1, k=id<<1;
 
@@ -26,7 +26,7 @@ void upd(int id,int l,int r,int p,int v){
     st[id]=max(st[k], st[k|1]);
 }
 
-ll get(int id,int l,int r,int u,int v){
+ll get(int id, int l, int r, int u, int v){
     if(r<u || l>v) return -9e18;
     if(u<=l && r<=v) return st[id];
     
@@ -36,13 +36,13 @@ ll get(int id,int l,int r,int u,int v){
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n, q, t, l, r; cin>>n;
+    int n, q; cin>>n;
     
     fo(i,1,n) cin>>a[i];
     build(1, 1, n); cin>>q;
 
     while(q--){
-        cin>>t>>l>>r;
+        int t, l, r; cin>>t>>l>>r;
         if(t==1) upd(1,1,n,l,r);
         else cout<<get(1,1,n,l,r)<<'\n';
     }
