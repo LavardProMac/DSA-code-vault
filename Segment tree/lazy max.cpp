@@ -1,3 +1,4 @@
+// Name: ITLAZY
 // Source: oj.vnoi.info/problem/segtree_itlazy
 
 #include<bits/stdc++.h>
@@ -18,8 +19,9 @@ void build(int id, int l, int r){
 
 inline void push(int id){
     if(!lz[id]) return;
-    const int k=id<<1, v=lz[id]; lz[id]=0;
-    st[k]+=v; st[k|1]+=v; lz[k]+=v; lz[k|1]+=v;
+    
+    int k=id<<1; ll v=lz[id]; lz[id]=0;
+    fo(i,k,k+1) st[i]+=v, lz[i]+=v;
 }
 
 void upd(int id, int l, int r, int u, int v, int k){
