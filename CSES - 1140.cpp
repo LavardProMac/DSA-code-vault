@@ -9,17 +9,18 @@ using namespace std;
 struct tp{
     int l, r, p;
     bool operator<(const tp& x) const{
-        return r<x.r;
+        if(r!=x.r) return r<x.r;
+        return l<x.l;
     }
 };
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    
     int n, j; cin>>n; tp a[n+1];
-    ll dp[n+1]; int p[n+1]; dp[0]=0;
     
+    int p[n+1]; ll dp[n+1]; dp[0]=0;
     fo(i,1,n) cin>>a[i].l>>a[i].r>>a[i].p;
+    
     sort(a+1, a+n+1);
     fo(i,1,n) p[i]=a[i].r;
     
