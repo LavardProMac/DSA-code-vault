@@ -1,4 +1,3 @@
-// Name: ITLAZY
 // Source: oj.vnoi.info/problem/segtree_itlazy
 
 #include<bits/stdc++.h>
