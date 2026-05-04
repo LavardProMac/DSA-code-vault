@@ -29,10 +29,9 @@ void upd(int id,int l,int r,int p,int v){
 ll get(int id,int l,int r,int u,int v){
     if(r<u || l>v) return -9e18;
     if(u<=l && r<=v) return st[id];
-    int m=l+r>>1;
-
-    return max(get(id<<1,l,m,u,v),
-               get(id<<1|1,m+1,r,u,v));
+    
+    int m=l+r>>1, k=id<<1;
+    return max(get(k,l,m,u,v), get(k|1,m+1,r,u,v));
 }
 
 int main(){
