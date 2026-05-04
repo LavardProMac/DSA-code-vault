@@ -19,10 +19,10 @@ void build(int id, int l, int r){
 
 inline void push(int id, int l, int r){
     if(!lz[id]) return;
-    const int m=l+r>>1, k=id<<1, v=lz[id];
+    int m=l+r>>1, k=id<<1; ll v=lz[id];
 
     st[k]+=v*(m-l+1); st[k|1]+=v*(r-m);
-    lz[k]+=v]; lz[k|1]+=v]; lz[id]=0;
+    lz[k]+=v; lz[k|1]+=v; lz[id]=0;
 }
 
 void upd(int id, int l, int r, int u, int v, ll k){
