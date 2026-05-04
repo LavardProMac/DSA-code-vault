@@ -17,12 +17,12 @@ void build(int id, int l, int r){
     st[id]=st[k]+st[k|1];
 }
 
-void push(int id, int l, int r){
+inline void push(int id, int l, int r){
     if(!lz[id]) return;
-    int m=l+r>>1, k=id<<1;
+    const int m=l+r>>1, k=id<<1, v=lz[id];
 
-    st[k]+=lz[id]*(m-l+1); st[k|1]+=lz[id]*(r-m);
-    lz[k]+=lz[id]; lz[k|1]+=lz[id]; lz[id]=0;
+    st[k]+=v*(m-l+1); st[k|1]+=v*(r-m);
+    lz[k]+=v]; lz[k|1]+=v]; lz[id]=0;
 }
 
 void upd(int id, int l, int r, int u, int v, ll k){
