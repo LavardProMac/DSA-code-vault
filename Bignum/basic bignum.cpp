@@ -1,6 +1,6 @@
 // hàm cộng 2 xâu O(N)
 string add(string a, string b){
-    if(a<b) swap(a, b);
+    if(a.size()<b.size()) swap(a, b);
     
     int n=a.size()-1;
     int m=b.size()-1, c=0;
