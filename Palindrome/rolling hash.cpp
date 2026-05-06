@@ -1,3 +1,5 @@
+// Rolling hash O(N+Q)
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
