@@ -16,6 +16,10 @@ inline ll getr(int l, int r){
     return (hr[l]-hr[r+1]*pw[r-l+1]%M+M)%M;
 }
 
+inline bool palin(int l, int r){
+    return get(l, r)==getr(l, r);
+}
+
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int q, l, r; cin>>s>>q;
@@ -28,5 +32,5 @@ int main(){
         hr[i]=(hr[i+1]*B+s[i])%M;
 
     while(q--) cin>>l>>r, 
-        cout<<(get(l, r)==getr(l, r)? "YES\n":"NO\n");
+        cout<<(palin(l, r)? "YES\n":"NO\n");
 }
