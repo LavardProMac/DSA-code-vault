@@ -1,4 +1,4 @@
-// Name: unweighted interval scheduling
+// Name: Unweighted interval scheduling
 // Source: cses.fi/problemset/task/1629
 
 #include<bits/stdc++.h>
