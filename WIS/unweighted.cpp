@@ -14,10 +14,10 @@ int main(){
     for(auto& [f,s]:a) cin>>s>>f; // đổi thứ tự nhập start và end
  
     sort(a, a+n); // sort theo ending time
-    int cnt=1, d=a[0].first; // chọn đoạn end sớm nhất và đặt d := end của đoạn đó
+    int cnt=1, d=a[0].first; // chọn đoạn a[0] và đặt d := end a[0]
  
-    fo(i,1,n) if(a[i].second>=d) // nếu đoạn đang xét start trước d thì 
-        d=a[i].first, ++cnt;     // d := end của đoạn này và tính vào đếm
+    fo(i,1,n) if(a[i].second>=d) // nếu a[i] start sau hoặc cùng d thì 
+        d=a[i].first, ++cnt;     // d := end a[i] và tính vào cnt
  
     cout<<cnt;
 }
