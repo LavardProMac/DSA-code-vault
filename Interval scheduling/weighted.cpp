@@ -1,4 +1,4 @@
-// Name: weighted interval scheduling
+// Name: Weighted interval scheduling
 // Source: c.tmathcoding.vn/contest/thithu2025/task/3
 
 #include<bits/stdc++.h>
