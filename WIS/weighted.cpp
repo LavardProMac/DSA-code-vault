@@ -1,3 +1,6 @@
+// Name: weighted interval scheduling
+// Source: c.tmathcoding.vn/contest/thithu2025/task/3
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
