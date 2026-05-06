@@ -1,4 +1,4 @@
-// Palindrome preprocess O(N^2)
+// Palindrome preprocessing O(N^2+Q)
 
 #include<bits/stdc++.h>
 #define ll long long
