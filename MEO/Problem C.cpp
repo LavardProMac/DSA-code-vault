@@ -7,10 +7,9 @@
 #define s second
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
-const ll N=2e5+5, INF=4e18;
 
-pll p[N];
-ll pr[N], mx[N], dl[N], l[N];
+const int N=2e5+5;
+pll p[N]; ll pr[N], mx[N], dl[N], l[N];
 
 inline bool cmp(const pll& x, const pll& y){
     return x.s<y.s;
