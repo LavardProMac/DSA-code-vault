@@ -3,14 +3,12 @@
 #include<bits/stdc++.h>
 #define ll long long
 #define Max(a,b) ({ll v=(b); a=a>v? a:v;})
-#define esc(s) return cout<<(s), 0
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 #define fd(i,j,n) for(int i=j; i>=n; --i)
 using namespace std;
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-
     int n, k, x; cin>>n>>k;
     ll dp[k+1][2], ans=dp[0][0]=0;
 
