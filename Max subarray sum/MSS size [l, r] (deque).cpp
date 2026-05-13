@@ -16,8 +16,7 @@ int main(){
             dq.pop_back();
         dq.push_back(i-l);
         
-        if(!dq.empty() && dq.front()<i-r)
-            dq.pop_front();
+        if(dq.front()<i-r) dq.pop_front();
         ans=max(ans, p[i]-p[dq.front()]);
     }
     cout<<ans;
