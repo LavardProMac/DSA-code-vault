@@ -1,22 +1,25 @@
+// Name: Range mininum queries
+// Source: cses.fi/problemset/task/1647
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=1e6+1;
-int n, lg[N], a[N], st[20][N];
+const int N=2e5+1;
+int n, lg[N], a[N], st[18][N];
 
 void build(){
-    st[0][1]=a[1];
+    int k=log2(n); st[0][1]=a[1];
     fo(i,2,n) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
 
-    for(int k=1, t=2; t<=n; ++k, t<<=1) fo(i,1,n-t+1)
-        st[k][i]=st[k-1][i]+st[k-1][i+(t>>1)];
+    fo(i,1,k) fo(j,1,n-(1<<i)+1)
+        st[i][j]=min(st[i-1][j], st[i-1][j+(1<<i-1)]);
 }
 
 inline int qry(int l, int r){
     const int j=lg[r-l+1];
-    return st[j][l]+st[j][r-(1<<j)+1]);
+    return min(st[j][l], st[j][r-(1<<j)+1]);
 }
 
 int main(){
