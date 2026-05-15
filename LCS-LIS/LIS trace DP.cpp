@@ -25,6 +25,6 @@ int main(){
         v.push_back(a[i]);
     reverse(v.begin(), v.end());
 
-    cout<<v.size()<<'\n';
+    cout<<dp[m]<<'\n';
     for(int i:v) cout<<i<<' ';
 }
