@@ -8,8 +8,7 @@ int a[N], p[N], id[N], t[N];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n, m=1; cin>>n;
-    vector<int> v;
+    int n, m=1; cin>>n; vector<int> v;
     
     fo(i,1,n){
         cin>>a[i];
@@ -23,6 +22,6 @@ int main(){
         v.push_back(a[i]);
     reverse(v.begin(), v.end());
     
-    cout<<v.size()<<'\n';
+    cout<<p[m]<<'\n';
     for(int i:v) cout<<i<<' ';
 }
