@@ -1,7 +1,5 @@
-const int N=1e6;
-
 //sàng Eratosthenes O(N log log N)
-bitset<N+1> p;
+const int N=1e6; bitset<N+1> p;
 
 void sieve(){
     p.set(); p[0]=p[1]=0;
@@ -10,7 +8,7 @@ void sieve(){
 }
 
 //odd sieve O(N/2 log log N)
-bitset<N+1> p;
+const int N=1e6; bitset<N+1> p;
 
 void odd_sieve(){
     p[0]=p[1]=1;
@@ -19,6 +17,7 @@ void odd_sieve(){
 }
 
 //odd sieve + vector
+const int N=1e6;
 bitset<N+1> p; vector<int> v={2};
 
 void odd_sieve(){
@@ -30,6 +29,8 @@ void odd_sieve(){
 }
 
 //linear sieve O(N)
+const int N=1e6;
+
 int a[N+1], v[N+1], pc;
 bitset<N+1> p;
 
@@ -42,7 +43,7 @@ void linear_sieve(){
 }
 
 //sàng Euler O(N log N)
-int f[N+1];
+const int N=1e6; int f[N+1];
 
 void phi_sieve(){
     fo(i,1,N) f[i]=i;
@@ -51,6 +52,8 @@ void phi_sieve(){
 }
 
 //sàng Euler tuyến tính O(N)
+const int N=1e6;
+
 int f[N+1], pr[N+1], pc;
 bitset<N+1> v;
 
@@ -60,7 +63,7 @@ void linear_phi_sieve(){
         if(!v[i]) pr[++pc]=i, f[i]=i-1;
         fo(j,1,pc){
             ll x=1LL*i*pr[j];
-            if(x>n) break;
+            if(x>N) break;
             v[x]=1;
             if(i%pr[j]==0){
                 f[x]=f[i]*pr[j];
