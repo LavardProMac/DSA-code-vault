@@ -16,9 +16,9 @@ int main(){
     fo(i,1,n) cin>>a[i];
     fo(i,1,m) cin>>b[i];
     
-    fo(i,1,n) fo(j,1,m)
-        if(a[i]==b[j]) dp[i][j]=dp[i-1][j-1]+1;
-        else dp[i][j]=max(dp[i][j-1], dp[i-1][j]);
+    fo(i,1,n) fo(j,1,m) dp[i][j]=
+        a[i]==b[j]? dp[i-1][j-1]+1;
+        max(dp[i][j-1], dp[i-1][j]);
     
     int t=dp[n][m], i=n, j=m;
     cout<<t<<'\n';
