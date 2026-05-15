@@ -11,13 +11,15 @@ int a[N], b[N], dp[N], t[N];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int m, n; cin>>m>>n;
+    int m, n, mx=0, id=0;
+    cin>>m>>n; vector<int> v;
 
     fo(i,1,m) cin>>a[i];
     fo(i,1,n) cin>>b[i];
 
     fo(i,1,m){
         int mx=0, p=0;
+        
         fo(j,1,n)
             if(a[i]>b[j] && dp[j]>mx)
                 mx=dp[j], p=j;
@@ -25,9 +27,9 @@ int main(){
             else if(a[i]==b[j] && mx>=dp[j])
                 dp[j]=mx+1, t[j]=p;
     }
-    int mx=0, id=0; vector<int> v;
-    fo(i,1,n) if(dp[i]>mx) mx=dp[i], id=i;
-
+    fo(i,1,n)
+        if(dp[i]>mx) mx=dp[i], id=i;
+    
     while(id)
         v.push_back(b[id]), id=t[id];
     reverse(v.begin(), v.end());
