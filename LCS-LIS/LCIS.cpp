@@ -25,17 +25,13 @@ int main(){
             else if(a[i]==b[j] && mx>=dp[j])
                 dp[j]=mx+1, t[j]=p;
     }
-    int mx=0, id=0;
-    vector<int> v;
-    
-    fo(i,1,n) if(dp[i]>mx)
-        mx=dp[i], id=i;
+    int mx=0, id=0; vector<int> v;
+    fo(i,1,n) if(dp[i]>mx) mx=dp[i], id=i;
 
     while(id)
-        v.push_back(b[id]),
-        id=t[id];
-
+        v.push_back(b[id]), id=t[id];
     reverse(v.begin(), v.end());
+    
     cout<<mx<<'\n';
     for(int i:v) cout<<i<<' ';
 }
