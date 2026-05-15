@@ -3,17 +3,17 @@
 
 #include<bits/stdc++.h>
 #define ll long long
-#define fo(i,j,n) for(int i=j; i<=n; ++i)
+#define fo(i,j,n) for(int i=j, m=n; i<=m; ++i)
 using namespace std;
 
 const int N=2e5+1;
 int n, lg[N], a[N], st[18][N];
 
 void build(){
-    int k=log2(n); st[0][1]=a[1];
+    st[0][1]=a[1];
     fo(i,2,n) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
 
-    fo(i,1,k) fo(j,1,n-(1<<i)+1)
+    fo(i,1,log2(n)) fo(j,1,n-(1<<i)+1)
         st[i][j]=min(st[i-1][j], st[i-1][j+(1<<i-1)]);
 }
 
