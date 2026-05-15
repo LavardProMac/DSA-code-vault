@@ -3,7 +3,7 @@
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=2001;
+const int N=2005;
 int a[N], dp[N], t[N];
 
 int main(){
@@ -23,7 +23,8 @@ int main(){
     }
     for(int i=m; i; i=t[i])
         v.push_back(a[i]);
-    
     reverse(v.begin(), v.end());
+
+    cout<<v.size()<<'\n';
     for(int i:v) cout<<i<<' ';
 }
