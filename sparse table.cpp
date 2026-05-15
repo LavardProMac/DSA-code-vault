@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
-#define f min/max/sum/__gcd
 using namespace std;
 
 const int N=1e6+1;
@@ -12,12 +11,12 @@ void build(){
     fo(i,2,n) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
 
     for(int k=1, t=2; t<=n; ++k, t<<=1) fo(i,1,n-t+1)
-        st[k][i]=f(st[k-1][i], st[k-1][i+(t>>1)]);
+        st[k][i]=st[k-1][i]+st[k-1][i+(t>>1)];
 }
 
 inline int qry(int l, int r){
     const int j=lg[r-l+1];
-    return f(st[j][l], st[j][r-(1<<j)+1]);
+    return st[j][l]+st[j][r-(1<<j)+1]);
 }
 
 int main(){
