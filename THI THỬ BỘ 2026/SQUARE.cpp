@@ -9,7 +9,7 @@ int a[N][N], mx[N][N], mn[N][N];
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n, m, k, d; cin>>n>>m>>k>>d;
-    int s=k<<1|1; ll ans=0;
+    int s=k<<1|1, cnt=0;
     
     deque<int> q1, q2;
     fo(i,1,n) fo(j,1,m) cin>>a[i][j];
@@ -54,9 +54,9 @@ int main(){
             if(i>=s){
                 int ma=mx[q1.front()][j];
                 int mi=mn[q2.front()][j];
-                ans+=ma-mi>=d;
+                if(ma-mi>=d) ++cnt;
             }
         }
     }
-    cout<<ans;
+    cout<<cnt;
 }
