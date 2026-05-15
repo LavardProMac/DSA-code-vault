@@ -42,7 +42,7 @@ void linear_sieve(){
     }
 }
 
-//sàng Euler O(N log N)
+//sàng phi Euler O(N log log N)
 const int N=1e6; int f[N+1];
 
 void phi_sieve(){
@@ -51,7 +51,7 @@ void phi_sieve(){
         for(int j=i; j<=N; j+=i) f[j]-=f[j]/i;
 }
 
-//sàng Euler tuyến tính O(N)
+//sàng phi Euler tuyến tính O(N)
 const int N=1e6;
 
 int f[N+1], pr[N+1], pc;
