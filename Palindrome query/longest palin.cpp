@@ -1,3 +1,5 @@
+// Source: oj.clue.edu.vn/problem/ptnk_ts10_25_c
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
