@@ -13,7 +13,7 @@ void build(){
     st[0][1]=a[1];
     fo(i,2,n) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
 
-    fo(i,1,log2(n)) fo(j,1,n-(1<<i)+1)
+    fo(i,1,lg[n]) fo(j,1,n-(1<<i)+1)
         st[i][j]=min(st[i-1][j], st[i-1][j+(1<<i-1)]);
 }
 
