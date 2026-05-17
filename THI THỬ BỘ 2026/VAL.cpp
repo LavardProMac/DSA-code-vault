@@ -14,6 +14,9 @@ void prep(){
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
+    freopen("VAL.INP", "r", stdin);
+    freopen("VAL.OUT", "w", stdout);
+    
     int t, n; cin>>t; prep();
     while(t--) cin>>n, cout<<p[n]<<'\n';
 }
