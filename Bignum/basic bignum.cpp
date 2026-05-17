@@ -51,7 +51,7 @@ string sub1(string s){
 }
 
 // hàm nhân xâu với 1 số tự nhiên O(N)
-string mul(string a, ll b){
+string mul(string a, const ll& b){
     int n=a.size()-1; ll c=0;
     reverse(a.begin(), a.end());
     
