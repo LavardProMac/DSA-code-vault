@@ -13,17 +13,19 @@ int main(){
     fo(i,1,n) cin>>p[i], p[i]+=p[i-1];
     fo(i,1,n){
         while(j<=n && p[j]-p[i-1]<s) ++j;
-        a[i]=j;
+        a[j]=i;
     }
-    for(int i=n; i; --i){
-        const int r=a[i];
-        dp[i]=dp[i+1]; cnt[i]=cnt[i+1];
+    fo(i,1,n) a[i]=max(a[i], a[i-1]);
+    
+    fo(i,1,n){
+        dp[i]=dp[i-1]; cnt[i]=cnt[i-1];
+        if(!a[i]) continue;
         
-        if(r<=n){
-            int t=dp[r+1]+1; ll k=cnt[r+1]+r-i+1;
-            if(t>dp[i] || t==dp[i] && k<cnt[i])
-                dp[i]=t, cnt[i]=k;
-        }
+        int t=dp[a[i]-1]+1;
+        ll k=cnt[a[i]-1]+i-a[i]+1;
+        
+        if(t>dp[i] || t==dp[i] && k<cnt[i])
+            dp[i]=t, cnt[i]=k;
     }
-    cout<<dp[1]<<' '<<cnt[1];
+    cout<<dp[n]<<' '<<cnt[n];
 }
