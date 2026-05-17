@@ -20,13 +20,11 @@ int main(){
         fo(i,1,n){
             while(!d1.empty() && a[j][d1.back()]<=a[j][i])
                 d1.pop_back();
-                
             d1.push_back(i);
             if(d1.front()<=i-s) d1.pop_front();
             
             while(!d2.empty() && a[j][d2.back()]>=a[j][i])
                 d2.pop_back();
-                
             d2.push_back(i);
             if(d2.front()<=i-s) d2.pop_front();
             
@@ -40,13 +38,11 @@ int main(){
         fo(i,1,m){
             while(!d1.empty() && mx[d1.back()][j]<=mx[i][j])
                 d1.pop_back();
-                
             d1.push_back(i);
             if(d1.front()<=i-s) d1.pop_front();
             
             while(!d2.empty() && mi[d2.back()][j]>=mi[i][j])
-                d2.pop_back();
-                
+                d2.pop_back();   
             d2.push_back(i);
             if(d2.front()<=i-s) d2.pop_front();
             
