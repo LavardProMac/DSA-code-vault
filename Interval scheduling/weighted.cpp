@@ -17,7 +17,7 @@ int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n; cin>>n; tp a[n+1];
 
-    // dp[i]: max profit khi xét i công việc đầu
+    // dp[i]: max profit tại công việc thứ i
     ll dp[n+1]; int e[n+1]; dp[0]=0;
 
     fo(i,1,n) cin>>a[i].l>>a[i].r>>a[i].p;
@@ -27,7 +27,7 @@ int main(){
     fo(i,1,n) e[i]=a[i].r;
 
     fo(i,1,n){
-        // tìm công việc cuối mà có end <= start a[i]
+        // tìm công việc cuối có end <= start a[i]
         int j=upper_bound(e+1, e+n+1, a[i].l)-e;
 
         // hai lựa chọn:
