@@ -15,7 +15,7 @@ int main(){
         while(j<=n && p[j]-p[i-1]<s) ++j;
         a[j]=i;
     }
-    fo(i,1,n) a[i]=max(a[i], a[i-1]);
+    fo(i,2,n) a[i]=max(a[i], a[i-1]);
     
     fo(i,1,n){
         dp[i]=dp[i-1]; cnt[i]=cnt[i-1];
