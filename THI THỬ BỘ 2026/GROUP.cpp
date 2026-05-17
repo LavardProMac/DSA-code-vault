@@ -4,26 +4,26 @@
 using namespace std;
 
 const int N=2e5+5;
-int f[N]; ll p[N], g[N];
+ll p[N], cnt[N]; int a[N], dp[N];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n; ll s; cin>>n>>s;
+    int n, j=1; ll s; cin>>n>>s;
     
-    int j=-1, bc=-1; ll bv=0;
     fo(i,1,n) cin>>p[i], p[i]+=p[i-1];
-
     fo(i,1,n){
-        while(j+1<i && p[j+1]<=p[i]-s)
-            if(f[++j]>bc || f[j]==bc && g[j]-j<bv)
-                bc=f[j], bv=g[j]-j;
-        
-        int c=-1; ll v=4e18;
-        if(bc!=-1) c=bc+1, v=bv+i;
-
-        if(c>f[i-1] || c==f[i-1] && v<g[i-1])
-            f[i]=c, g[i]=v;
-        else f[i]=f[i-1], g[i]=g[i-1];
+        while(j<=n && p[j]-p[i-1]<s) ++j;
+        a[i]=j;
     }
-    cout<<f[n]<<' '<<g[n];
+    for(int i=n; i; --i){
+        const int r=a[i];
+        dp[i]=dp[i+1]; cnt[i]=cnt[i+1];
+        
+        if(r<=n){
+            int t=dp[r+1]+1; ll k=cnt[r+1]+r-i+1;
+            if(t>dp[i] || t==dp[i] && k<cnt[i])
+                dp[i]=t, cnt[i]=k;
+        }
+    }
+    cout<<dp[1]<<' '<<cnt[1];
 }
