@@ -6,6 +6,9 @@ int a[26];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
+    freopen("BCHAR.INP", "r", stdin);
+    freopen("BCHAR.OUT", "w", stdout);
+    
     int n, k; cin>>n>>k;
     string s; ll ans=0; cin>>s;
     
