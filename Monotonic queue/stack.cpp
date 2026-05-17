@@ -1,4 +1,4 @@
-// Name: Giá trị dãy số
+// Đề: tính tổng max-min của mọi đoạn con
 // Source: oj.clue.edu.vn/problem/qt_hsg9_26_d
 
 #include<bits/stdc++.h>
