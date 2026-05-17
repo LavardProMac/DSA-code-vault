@@ -8,9 +8,12 @@ ll p[N], cnt[N]; int a[N], dp[N];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n, j=1; ll s; cin>>n>>s;
+    freopen("GROUP.INP", "r", stdin);
+    freopen("GROUP.OUT", "w", stdout);
     
+    int n, j=1; ll s; cin>>n>>s;
     fo(i,1,n) cin>>p[i], p[i]+=p[i-1];
+    
     fo(i,1,n){
         while(j<=n && p[j]-p[i-1]<s) ++j;
         a[j]=i;
