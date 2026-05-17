@@ -8,8 +8,10 @@ int a[N][N], mx[N][N], mi[N][N];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int m, n, k, d; cin>>m>>n>>k>>d;
+    freopen("SQUARE.INP", "r", stdin);
+    freopen("SQUARE.OUT", "w", stdout);
     
+    int m, n, k, d; cin>>m>>n>>k>>d;
     int s=k<<1|1, cnt=0;
     fo(i,1,m) fo(j,1,n) cin>>a[i][j];
     
