@@ -42,7 +42,7 @@ int main(){
     int n, k, x; cin>>n>>k;
     memset(st, 0x3f, sizeof st);
 
-    int a[n+1], b[n+1], dp[n+1]; dp[1]=0;
+    int b[n+1], dp[n+1]; dp[1]=0;
     fo(i,1,n) cin>>a[i], b[i]=a[i];
 
     sort(b+1, b+n+1);
