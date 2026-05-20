@@ -4,25 +4,27 @@
 using namespace std;
 
 const int N=1e6+1;
-int p[N], s[N];
+int p[N], sz[N];
 
-inline void dsu(const int& n){
-    fo(i,1,n) p[i]=i, s[i]=1;
+void dsu(const int& n){
+    fo(i,1,n) p[i]=i, sz[i]=1;
 }
 
-inline int find(const int& x){
+int find(const int& x){
     if(p[x]!=x) p[x]=find(p[x]);
     return p[x];
 }
 
 inline bool unite(int a, int b){
     a=find(a), b=find(b);
+    
     if(a==b) return false;
-    if(s[a]<s[b]) swap(a, b);
-    p[b]=a, s[a]+=s[b];
+    if(sz[a]<sz[b]) swap(a, b);
+    
+    p[b]=a, sz[a]+=sz[b];
     return true;
 }
 
-inline int get(const int& x){
-    return s[f(x)];
+inline int getsz(const int& x){
+    return sz[find(x)];
 }
