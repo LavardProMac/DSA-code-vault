@@ -1,6 +1,6 @@
-// Đề: tính min số lần mất sức để đi từ 1 đến n
-// Mỗi lần được di chuyển không quá k
-// Một lần đi đc tính là mất sức nếu ai<=aj (i<j)
+// Đề: Tính min số lần nhảy mất sức để đi từ 1 đến n
+// Mỗi lần nhảy được di chuyển không quá k bước
+// Một lần nhảy từ j đến i đc tính là mất sức nếu aj<=ai với j<i
 
 #include<bits/stdc++.h>
 #define ll long long
