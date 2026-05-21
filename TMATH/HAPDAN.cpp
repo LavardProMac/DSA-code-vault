@@ -1,4 +1,4 @@
-// Đề: tính số lượng số có các chữ số phân biệt trong đoạn [l, r]
+// Đề: đếm số lượng số có các chữ số phân biệt trong đoạn [l, r]
 
 #include<bits/stdc++.h>
 #define ll long long
