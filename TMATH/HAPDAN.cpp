@@ -17,11 +17,11 @@ void gen(ll x, int l){
 
 int main(){
 	ios::sync_with_stdio(0); cin.tie(0);
-  freopen("HAPDAN.INP", "r", stdin);
-  freopen("HAPDAN.OUT", "w", stdout);
+  	freopen("HAPDAN.INP", "r", stdin);
+  	freopen("HAPDAN.OUT", "w", stdout);
   
 	int t; ll l, r; cin>>t;
-  fo(i,1,9) v[i]=1, gen(i, 0), v[i]=0;
+  	fo(i,1,9) v[i]=1, gen(i, 0), v[i]=0;
 
 	while(t--) cin>>l>>r,
 	    cout<<upper_bound(a+1, a+8877691, r)
