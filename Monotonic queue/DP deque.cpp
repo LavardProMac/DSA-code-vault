@@ -1,5 +1,6 @@
 // Đề: tìm max tổng giá trị khi chia mảng thành k đoạn con
-//     giá trị của 1 đoạn con = abs tổng đoạn đó
+// Giá trị của 1 đoạn con = abs tổng đoạn đó
+// Điều kiện: các đoạn con có số phần tử <= m
 // Source: oj.clue.edu.vn/problem/tn_hsg10_26_d
 
 #include<bits/stdc++.h>
