@@ -26,11 +26,11 @@ inline void del(int i){
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     cin>>n;
-    
     fo(i,1,n) cin>>a[i];
     int q, l=1, r=0; cin>>q;
     
-    fo(i,1,q) cin>>Q[i].l>>Q[i].r, Q[i].id=i;
+    fo(i,1,q) cin>>Q[i].l>>Q[i].r,
+        Q[i].id=i;
     sort(Q+1, Q+q+1); int ans[q+1];
 
     fo(i,1,q){
