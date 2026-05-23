@@ -25,11 +25,11 @@ int main(){
     int q, l, r, k=1; cin>>q;
     array<int, 3> Q[q+1]; int ans[q+1];
     
-    fo(i,1,q) cin>>l>>r, Q[i]={r, l, i};
+    fo(i,1,q) cin>>Q[i][1]>>Q[i][0], Q[i][2]=i;
     sort(Q+1, Q+q+1);
     
     fo(i,1,q){
-        const auto& [r, l, id]=Q[i];
+        int r=Q[i][0], l=Q[i][1], id=Q[i][2];
         while(r>=k) upd(k, 1), upd(L[k++], -1);
         ans[id]=get(r)-get(l-1);
     }
