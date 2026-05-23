@@ -1,3 +1,6 @@
+// Đề: đếm số phần tử phân biệt trong a[l, r]
+// Source : oj.vnoi.info/problem/dquery
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
