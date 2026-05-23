@@ -1,13 +1,10 @@
-// Đề: đếm số phần tử phân biệt trong a[l, r]
-// Source : oj.vnoi.info/problem/dquery
-
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-const int N=1e6+5;
-int n, B, a[N], c[N], cur;
+const int N=1e6+5, B=200;
+int n, a[N], c[N], cur;
 
 struct tp{
     int l, r, id;
@@ -28,22 +25,21 @@ inline void del(int i){
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    cin>>n; B=sqrt(n);
+    cin>>n;
+    
     fo(i,1,n) cin>>a[i];
+    int q, l=1, r=0; cin>>q;
     
-    int q, l, r; cin>>q;
-    fo(i,1,q) cin>>l>>r, Q[i]={l, r, i};
-    
-    sort(Q+1, Q+q+1);
-    int ans[q+1]; l=1, r=0;
+    fo(i,1,q) cin>>Q[i].l>>Q[i].r, Q[i].id=i;
+    sort(Q+1, Q+q+1); int ans[q+1];
 
     fo(i,1,q){
-        const auto[L, R, id]=Q[i];
+        int L=Q[i].l, R=Q[i].r;
         while(r<R) add(++r);
         while(r>R) del(r--);
         while(l<L) del(l++);
         while(l>L) add(--l);
-        ans[id]=cur;
+        ans[Q[i].id]=cur;
     }
     fo(i,1,q) cout<<ans[i]<<'\n';
 }
