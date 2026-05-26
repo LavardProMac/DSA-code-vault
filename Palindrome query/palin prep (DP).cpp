@@ -13,7 +13,7 @@ void prep(){
         p[i][i]=1;
         if(s[i]==s[i-1]) p[i-1][i]=1;
     }
-    for(int l=n; l; --l) fo(r,l+2,n)
+    for(int l=n-2; l; --l) fo(r,l+2,n)
         if(s[l]==s[r] && p[l+1][r-1]) p[l][r]=1;
 }
 
