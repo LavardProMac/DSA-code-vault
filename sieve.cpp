@@ -22,10 +22,11 @@ bitset<N+1> p; vector<int> v={2};
 
 void odd_sieve(){
     for(int i=3; i<=1000; i+=2) if(!p[i]){
-        v.pb(i);
+        v.push_back(i);
         for(int j=i*i, k=i<<1; j<=N; j+=k) p[j]=1;
     }
-    for(int i=1001; i<=N; i+=2) if(!p[i]) v.pb(i);
+    for(int i=1001; i<=N; i+=2) if(!p[i])
+        v.push_back(i);
 }
 
 //linear sieve O(N)
