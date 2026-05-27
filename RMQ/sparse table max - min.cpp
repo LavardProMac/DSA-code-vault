@@ -22,9 +22,9 @@ void build(){
 }
 
 inline int qry(int l, int r){
-    const int j=lg[r-l+1];
-    return max(mx[j][l], mx[j][r-(1<<j)+1])
-          -min(mi[j][l], mi[j][r-(1<<j)+1]);
+    int j=lg[r-l+1], k=r-(1<<j)+1;
+    return max(mx[j][l], mx[j][k])
+          -min(mi[j][l], mi[j][k]);
 }
 
 int main(){
