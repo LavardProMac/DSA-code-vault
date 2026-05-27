@@ -4,7 +4,7 @@
 using namespace std;
 
 const int N=2e5+5;
-ll p[N], cnt[N]; int a[N], dp[N];
+int a[N], dp[N], cnt[N]; ll p[N];
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
@@ -21,11 +21,11 @@ int main(){
     fo(i,2,n) a[i]=max(a[i], a[i-1]);
     
     fo(i,1,n){
+        int x=a[i];
         dp[i]=dp[i-1]; cnt[i]=cnt[i-1];
-        if(!a[i]) continue;
         
-        int t=dp[a[i]-1]+1;
-        ll k=cnt[a[i]-1]+i-a[i]+1;
+        if(!x--) continue;
+        int t=dp[x]+1; ll k=cnt[x]+i-x;
         
         if(t>dp[i] || t==dp[i] && k<cnt[i])
             dp[i]=t, cnt[i]=k;
