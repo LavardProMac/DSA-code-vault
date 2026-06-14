@@ -8,7 +8,7 @@ const int N=1e5+5;
 
 unordered_map<int, vector<int>> g;
 unordered_map<int, int> p; // parent
-bitset<N> d;
+unordered_map<int, bool> d;
 
 void dfs(int u){
     cout<<u<<' '; d[u]=1;
