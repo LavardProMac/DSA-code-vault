@@ -2,6 +2,8 @@
 
 #include<bits/stdc++.h>
 #define ll long long
+#define pb push_back
+#define all(a) a.begin(), a.end()
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 const int N=1e5+5;
@@ -20,11 +22,15 @@ void dfs(int u){
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n, m, u, v; cin>>n>>m;
+    vector<int> a;
     
     fo(i,1,m) cin>>u>>v,
-        g[u].push_back(v),
-        g[v].push_back(u);
+        g[u].pb(v), g[v].pb(u),
+        a.pb(u), a.pb(v);
+        
+    sort(all(a));
+    a.erase(unique(all(a)), a.end());
 
-    fo(i,1,n) if(!d[i]) dfs(i);
-    // fo(i,1,n) cout<<p[i]<<' ';
+    for(int i:a) if(!d[i]) dfs(i);
+    // for(int i:a) cout<<p[i]<<' ';
 }
