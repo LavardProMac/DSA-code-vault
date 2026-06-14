@@ -11,7 +11,7 @@ unordered_map<int, int> p; // parent
 unordered_map<int, bool> d;
 
 void dfs(int u){
-    cout<<u<<' '; d[u]=1;
+    d[u]=1; // cout<<u<<' ';
     
     for(int v:g[u]) if(!d[v])
         p[v]=u, dfs(v);
@@ -26,4 +26,5 @@ int main(){
         g[v].push_back(u);
 
     fo(i,1,n) if(!d[i]) dfs(i);
+    // fo(i,1,n) cout<<p[i]<<' ';
 }
