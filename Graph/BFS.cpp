@@ -7,7 +7,7 @@ using namespace std;
 const int N=1e5+5;
 
 unordered_map<int, vector<int>> g;
-bitset<N> d;
+unordered_map<int, int> d; // distance
 
 void bfs(int s){
     queue<int> q;
@@ -15,10 +15,10 @@ void bfs(int s){
 
     while(!q.empty()){
         int u=q.front(); q.pop();
-        cout<<u<<' ';
+        //cout<<u<<' ';
 
         for(int v:g[u]) if(!d[v])
-            d[v]=1, q.push(v);
+            d[v]=d[u]+1, q.push(v);
     }
 }
 
@@ -31,4 +31,5 @@ int main(){
         g[v].push_back(u);
 
     fo(i,1,n) if(!d[i]) bfs(i);
+    //fo(i,1,n) cout<<d[i]<<' ';
 }
