@@ -7,11 +7,14 @@ using namespace std;
 const int N=1e5+5;
 
 unordered_map<int, vector<int>> g;
+unordered_map<int, int> p; // parent
 bitset<N> d;
 
 void dfs(int u){
     cout<<u<<' '; d[u]=1;
-    for(int v:g[u]) if(!d[v]) dfs(v);
+    
+    for(int v:g[u]) if(!d[v])
+        p[v]=u, dfs(v);
 }
 
 int main(){
