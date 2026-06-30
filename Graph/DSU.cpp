@@ -6,13 +6,12 @@ using namespace std;
 const int N=1e6+1;
 int p[N], sz[N];
 
-void dsu(const int& n){
+void init(const int& n){
     fo(i,1,n) p[i]=i, sz[i]=1;
 }
 
-int find(const int& x){
-    if(p[x]!=x) p[x]=find(p[x]);
-    return p[x];
+inline int find(const int& x){
+    return p[x]==x? x:p[x]=find(p[x]);
 }
 
 inline bool unite(int a, int b){
