@@ -1,30 +1,30 @@
-// Source: cses.fi/problemset/task/1192
+// Source: cses.fi/problemset/task/1666
 
 #include<bits/stdc++.h>
 #define ll long long
+#define pb push_back
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
- 
-int n, m; char a[1001][1001];
-int dx[]={-1, 1, 0, 0};
-int dy[]={0, 0, -1, 1};
- 
-void dfs(int x, int y){
-    a[x][y]='#';
-    fo(i,0,3){
-        int u=x+dx[i], v=y+dy[i];
-        if(u<1 || u>n || v<1 || v>m || a[u][v]=='#')
-            continue;
-        dfs(u, v);
-    }
+
+const int N=1e5+5;
+vector<int> g[N]; bitset<N> d;
+
+void dfs(int u){
+    d[u]=1;
+    for(int v:g[u]) if(!d[v]) dfs(v);
 }
- 
+
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int ans=0; cin>>n>>m;
-    fo(i,1,n) fo(j,1,m) cin>>a[i][j];
+    int n, m, u, v; cin>>n>>m;
     
-    fo(i,1,n) fo(j,1,m) if(a[i][j]=='.')
-        ++ans, dfs(i, j);
-    cout<<ans;
+    fo(i,1,m) cin>>u>>v,
+        g[u].pb(v), g[v].pb(u);
+    
+    vector<int> a;
+    fo(i,1,n) if(!d[i]) a.pb(i), dfs(i);
+    
+    cout<<(n=a.size()-1)<<'\n';
+    fo(i,1,n)
+        cout<<a[i-1]<<' '<<a[i]<<'\n';
 }
