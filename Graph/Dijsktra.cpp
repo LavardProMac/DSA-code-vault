@@ -7,7 +7,7 @@
 using namespace std;
 
 vector<pii> a[100005]; ll d[100005];
-priority_queue<pii, vector<pii>, greater<pii>> q;
+priority_queue<pii, vector<pii>, greater<pii>> pq;
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
@@ -19,12 +19,12 @@ int main(){
     fo(i,1,m) cin>>u>>v>>w,
         a[u].emplace_back(v, w);
 
-    while(!q.empty()){
-        auto [du, u]=q.top(); q.pop();
+    while(!pq.empty()){
+        auto [du, u]=pq.top(); pq.pop();
         if(du!=d[u]) continue;
 
         for(auto [v, w]:a[u]) if(d[v]>d[u]+w)
-            d[v]=d[u]+w, q.push({d[v], v});
+            d[v]=d[u]+w, pq.push({d[v], v});
     }
     fo(i,1,n) cout<<d[i]<<' ';
 }
