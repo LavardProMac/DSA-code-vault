@@ -13,8 +13,8 @@ int a[N], rs[N];
 pii st[N<<2]; ll lz[N<<2];
 
 inline pii Min(pii x, pii y){
-    if(x.s==0) return y;
-    if(y.s==0) return x;
+    if(!x.s) return y;
+    if(!y.s) return x;
     return min(x, y);
 }
 
