@@ -1,3 +1,5 @@
+// Source: gspvh2627.contest.codeforces.com/group/GXYpZfKThs/contest/702381/problem/A
+
 #include<bits/stdc++.h>
 #define ll long long
 #define fo(i,l,r) for(int i=l; i<=r; i++)
