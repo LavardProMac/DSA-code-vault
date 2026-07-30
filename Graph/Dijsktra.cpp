@@ -13,7 +13,7 @@ int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n, m, u, v, w;
     
-    cin>>n>>m; q.push({0, 1});
+    cin>>n>>m; pq.push({0, 1});
     memset(d, 0x3f, sizeof d); d[1]=0;
 
     fo(i,1,m) cin>>u>>v>>w,
