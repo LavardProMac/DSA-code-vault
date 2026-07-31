@@ -30,6 +30,7 @@ int qry(const string& s){
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n, m; cin>>n>>m; string s;
+    
     fo(i,0,n) cin>>s, add(s);
     fo(i,0,m) cin>>s, cout<<qry(s)<<'\n';
 }
