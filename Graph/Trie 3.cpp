@@ -14,7 +14,7 @@ inline bool cmp(int a, int b){
     cnt[a]==cnt[b] && w[a]<w[b];
 }
 
-void add(string &s, int k){
+void add(const string &s, int k){
     int u=0;
     if(cmp(k, id[u])) id[u]=k;
 
@@ -25,6 +25,16 @@ void add(string &s, int k){
         u=tr[u][x];
         if(cmp(k, id[u])) id[u]=k;
     }
+}
+
+int get(const string& s){
+    int u=0;
+    for(char c:s){
+        int x=c-'a';
+        if(!tr[u][x]) return -1;
+        u=tr[u][x];
+    }
+    return id[u];
 }
 
 int main(){
@@ -41,19 +51,8 @@ int main(){
     int q; cin>>q;
 
     while(q--){
-        cin>>s; int u=0;
-        
-        for(char c:s){
-            int x=c-'a';
-            if(!tr[u][x]){
-                u=-1; break;
-            }
-            u=tr[u][x];
-        }
-        if(u==-1) cout<<-1<<'\n';
-        else{
-            int k=id[u];
-            cout<<w[k]<<' '<<cnt[k]<<'\n';
-        }
+        cin>>s; int k=get(s);
+        if(k==-1) cout<<"-1\n";
+        else cout<<w[k]<<' '<<cnt[k]<<'\n';
     }
 }
