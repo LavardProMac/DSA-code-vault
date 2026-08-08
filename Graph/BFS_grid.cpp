@@ -16,8 +16,8 @@ void bfs(int sx, int sy){
 
     while(!q.empty()){
         auto [x, y]=q.front(); q.pop();
-        fo(k,0,3){
-            int u=x+dx[k], v=y+dy[k];
+        fo(i,0,3){
+            int u=x+dx[i], v=y+dy[i];
             if(u<1 || u>m || v<1 || v>n) continue;
             if(vs[u][v] || a[u][v]=='*') continue;
             vs[u][v]=1; q.push({u, v});
