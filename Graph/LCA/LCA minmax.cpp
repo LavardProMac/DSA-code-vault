@@ -6,52 +6,63 @@ using namespace std;
 const int N=1e5+5, LOG=17;
 
 int d[N], up[N][LOG+1];
-vector<int> g[N];
+int mi[N][LOG+1], mx[N][LOG+1];
+vector<pair<int, int>> g[N];
 
 void dfs(int u, int p){
     up[u][0]=p;
-    fo(i,1,LOG) up[u][i]=up[up[u][i-1]][i-1];
+    fo(i,1,LOG) up[u][i]=up[up[u][i-1]][i-1],
+        mi[u][i]=min(mi[u][i-1], mi[up[u][i-1]][i-1]),
+        mx[u][i]=max(mx[u][i-1], mx[up[u][i-1]][i-1]);
 
-    for(int v:g[u]) if(v!=p)
+    for(auto [v, w]:g[u]) if(v!=p)
+        mi[v][0]=mx[v][0]=w,
         d[v]=d[u]+1, dfs(v, u);
 }
 
 inline int lca(int u, int v){
     if(d[u]<d[v]) swap(u, v);
     for(int i=LOG; i>=0; --i)
-        if(d[u]-(1<<i)>=d[v]) u=up[u][i];
+        if(d[u]-(1<<i)>=d[v])
+            u=up[u][i];
+    
     if(u==v) return u;
-
     for(int i=LOG; i>=0; --i)
         if(up[u][i]!=up[v][i])
             u=up[u][i], v=up[v][i];
     return up[u][0];
 }
 
-inline int dis(int u, int v){
-    return d[u]+d[v]-2*d[lca(u, v)];
-}
-
-inline int lc3(int a, int b, int c){
-    int x=lca(a, b), y=lca(a, c), z=lca(b, c);
-    if(d[x]>=d[y] && d[x]>=d[z]) return x;
-    return d[y]>=d[z]? y:z;
-}
-
-inline int qry(int a, int b, int c){
-    int m=lc3(a, b, c);
-    return max({dis(a,m), dis(b,m), dis(c,m)})+1;
+inline pair<int, int> qry(int u, int v){
+    int mn=2e9, ma=0, l=lca(u, v);
+    for(int i=LOG; i>=0; --i)
+        if(d[u]-(1<<i)>=d[l])
+            mn=min(mn, mi[u][i]),
+            ma=max(ma, mx[u][i]),
+            u=up[u][i];
+        
+    for(int i=LOG; i>=0; --i)
+        if(d[v]-(1<<i)>=d[l])
+            mn=min(mn, mi[v][i]),
+            ma=max(ma, mx[v][i]),
+            v=up[v][i];
+    return {mn, ma};
 }
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n, q, a, b, c; cin>>n>>q;
+    int n, u, v, w; cin>>n;
 
-    fo(i,2,n) cin>>a,
-        g[a].emplace_back(i),
-        g[i].emplace_back(a);
-    dfs(1, 0);
+    fo(i,2,n) cin>>u>>v>>w,
+        g[u].emplace_back(v, w),
+        g[v].emplace_back(u, w);
 
-    while(q--) cin>>a>>b>>c,
-        cout<<qry(a, b, c)<<'\n';
+    memset(mi, 0x3f, sizeof mi);
+    dfs(1, 0); int q; cin>>q;
+
+    while(q--){
+        cin>>u>>v;
+        auto [mi, mx]=qry(u, v);
+        cout<<mi<<' '<<mx<<'\n';
+    }
 }
