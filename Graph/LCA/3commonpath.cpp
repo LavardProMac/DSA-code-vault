@@ -19,31 +19,31 @@ void dfs(int u, int p){
 
 inline int lca(int u, int v){
     if(d[u]<d[v]) swap(u, v);
-    
     for(int i=LOG; i>=0; --i)
         if(d[u]-(1<<i)>=d[v])
             u=up[u][i];
+    
     if(u==v) return u;
-
     for(int i=LOG; i>=0; --i)
         if(up[u][i]!=up[v][i])
             u=up[u][i], v=up[v][i];
     return up[u][0];
 }
 
-inline int dis(int u, int v){
-    return d[u]+d[v]-2*d[lca(u, v)];
-}
-
-inline int lc3(int a, int b, int c){
-    int x=lca(a, b), y=lca(a, c), z=lca(b, c);
+inline int lca3(int a, int b, int c){
+    int x=lca(a, b), y=lca(b, c), z=lca(c, a);
     if(d[x]>=d[y] && d[x]>=d[z]) return x;
     return d[y]>=d[z]? y:z;
 }
 
+inline int dist(int u, int v){
+    return d[u]+d[v]-2*d[lca(u, v)];
+}
+
 inline int qry(int a, int b, int c){
-    int m=lc3(a, b, c);
-    return max({dis(a,m), dis(b,m), dis(c,m)})+1;
+    int l=lca3(a, b, c);
+    return 1+max({dist(a, l),
+        dist(b, l), dist(c, l)});
 }
 
 int main(){
@@ -51,8 +51,8 @@ int main(){
     int n, q, a, b, c; cin>>n>>q;
 
     fo(i,2,n) cin>>a,
-        g[a].emplace_back(i),
-        g[i].emplace_back(a);
+        g[a].push_back(i),
+        g[i].push_back(a);
     dfs(1, 0);
 
     while(q--) cin>>a>>b>>c,
