@@ -5,13 +5,13 @@
 using namespace std;
 const int N=2e5+5, LOG=17;
 
-int d[N], up[LOG+1][N];
+int d[N], up[N][LOG+1];
 vector<int> g[N];
 
 void dfs(int u, int p){
-    up[0][u]=p;
-    fo(j,1,LOG) up[j][u]=
-        up[j-1][up[j-1][u]];
+    up[u][0]=p;
+    fo(i,1,LOG) up[u][i]=
+        up[up[u][i-1]][i-1];
 
     for(int v:g[u]) if(v!=p)
         d[v]=d[u]+1, dfs(v, u);
@@ -19,16 +19,16 @@ void dfs(int u, int p){
 
 int lca(int u, int v){
     if(d[u]<d[v]) swap(u, v);
-    
-    for(int j=LOG; j>=0; --j)
-        if(d[u]-(1<<j)>=d[v])
-            u=up[j][u];
+
+    for(int i=LOG; i>=0; --i)
+        if(d[u]-(1<<i)>=d[v])
+            u=up[u][i];
     if(u==v) return u;
 
-    for(int j=LOG; j>=0; --j)
-        if(up[j][u]!=up[j][v])
-            u=up[j][u], v=up[j][v];
-    return up[0][u];
+    for(int i=LOG; i>=0; --i)
+        if(up[u][i]!=up[v][i])
+            u=up[u][i], v=up[v][i];
+    return up[u][0];
 }
 
 inline int dist(int u, int v){
