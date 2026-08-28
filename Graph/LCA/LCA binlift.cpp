@@ -22,7 +22,7 @@ int lca(int u, int v){
     int di=d[u]-d[v];
 
     fo(i,0,LOG)
-        if(d>>i&1) u=up[u][i];
+        if(di>>i&1) u=up[u][i];
     if(u==v) return u;
 
     for(int i=LOG; i>=0; --i)
