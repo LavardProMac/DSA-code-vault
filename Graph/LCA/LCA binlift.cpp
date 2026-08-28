@@ -19,10 +19,10 @@ void dfs(int u, int p){
 
 int lca(int u, int v){
     if(d[u]<d[v]) swap(u, v);
+    int di=d[u]-d[v];
 
-    for(int i=LOG; i>=0; --i)
-        if(d[u]-(1<<i)>=d[v])
-            u=up[u][i];
+    fo(i,0,LOG)
+        if(d>>i&1) u=up[u][i];
     if(u==v) return u;
 
     for(int i=LOG; i>=0; --i)
