@@ -11,6 +11,7 @@ int a[N]; ll st[N*4], lz[N*4];
 void build(int id, int l, int r){
     if(l==r) {st[id]=a[l]; return;}
     int m=l+r>>1, k=id<<1;
+    
     build(k, l, m); build(k|1, m+1, r);
     st[id]=max(st[k], st[k|1]);
 }
@@ -35,6 +36,7 @@ void upd(int id, int l, int r, int u, int v, int w){
 ll get(int id, int l, int r, int u, int v){
     if(r<u || l>v) return -4e18;
     if(u<=l && r<=v) return st[id];
+    
     int m=l+r>>1, k=id<<1; push(id);
     return max(get(k, l, m, u, v),
                get(k|1, m+1, r, u, v));
