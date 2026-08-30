@@ -18,21 +18,18 @@ void build(int id, int l, int r){
 
 inline void push(int id){
     if(!lz[id]) return;
-    
     int k=id<<1; ll v=lz[id]; lz[id]=0;
-    fo(i,k,k+1) st[i]+=v, lz[i]+=v;
+    fo(i,k,k|1) st[i]+=v, lz[i]+=v;
 }
 
-void upd(int id, int l, int r, int u, int v, int k){
+void upd(int id, int l, int r, int u, int v, int w){
     if(r<u || l>v) return;
-    
     if(u<=l && r<=v){
-        st[id]+=k; lz[id]+=k; return;
+        st[id]+=w; lz[id]+=w; return;
     }
-    const int m=l+r>>1, t=id<<1; push(id);
-    upd(t,l,m,u,v,k); upd(t|1,m+1,r,u,v,k);
-    
-    st[id]=max(st[t], st[t|1]);
+    const int m=l+r>>1, k=id<<1; push(id);
+    upd(k,l,m,u,v,w); upd(tk1,m+1,r,u,v,w);
+    st[id]=max(st[k], st[k|1]);
 }
 
 ll get(int id, int l, int r, int u, int v){
