@@ -2,17 +2,16 @@
 
 #include<bits/stdc++.h>
 #define ll long long
-#define fo(i,j,n) for(int i=j; i<=n; ++i)
+#define fo(i,j,n) for(int i=j; i<=(n); ++i)
 using namespace std;
 
-const int N=1e5+1;
-int a[N]; ll st[N<<2], lz[N<<2];
+const int N=1e5+5;
+int a[N]; ll st[N*4], lz[N*4];
 
 void build(int id, int l, int r){
     if(l==r) {st[id]=a[l]; return;}
-    const int m=l+r>>1, k=id<<1;
-
-    build(k,l,m); build(k|1,m+1,r);
+    int m=l+r>>1, k=id<<1;
+    build(k, l, m); build(k|1, m+1, r);
     st[id]=max(st[k], st[k|1]);
 }
 
@@ -27,29 +26,31 @@ void upd(int id, int l, int r, int u, int v, int w){
     if(u<=l && r<=v){
         st[id]+=w; lz[id]+=w; return;
     }
-    const int m=l+r>>1, k=id<<1; push(id);
-    upd(k,l,m,u,v,w); upd(tk1,m+1,r,u,v,w);
+    int m=l+r>>1, k=id<<1; push(id);
+    upd(k, l, m, u, v, w);
+    upd(k|1, m+1, r, u, v, w);
     st[id]=max(st[k], st[k|1]);
 }
 
 ll get(int id, int l, int r, int u, int v){
-    if(r<u || l>v) return -9e18;
+    if(r<u || l>v) return -4e18;
     if(u<=l && r<=v) return st[id];
-    
     int m=l+r>>1, k=id<<1; push(id);
-    return max(get(k,l,m,u,v), get(k|1,m+1,r,u,v));
+    return max(get(k, l, m, u, v),
+               get(k|1, m+1, r, u, v));
 }
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
     int n, q; cin>>n;
-    
     fo(i,1,n) cin>>a[i];
     build(1, 1, n); cin>>q;
 
     while(q--){
-        int t, l, r, k; cin>>t>>l>>r;
-        if(t==1) cin>>k, upd(1,1,n,l,r,k);
-        else cout<<get(1,1,n,l,r)<<'\n';
+        int t, l, r, v; cin>>t>>l>>r;
+        if(t==1) cin>>v,
+            upd(1, 1, n, l, r, v);
+        else cout<<
+            get(1, 1, n, l, r)<<'\n';
     }
 }
