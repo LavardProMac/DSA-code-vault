@@ -21,8 +21,8 @@ void calc(int id,int l,int r,int L,int R){
         if(cur<ans) ans=cur, g=i;
     }
     dp[id][m]=ans;
-    calc(id,l,m-1,L,g);
-    calc(id,m+1,r,g,R);
+    calc(id, l, m-1, L, g);
+    calc(id, m+1, r, g, R);
 }
 
 int main(){
