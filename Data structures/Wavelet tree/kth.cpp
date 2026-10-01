@@ -32,7 +32,7 @@ inline int kth(int l, int r, int k){
         else l=z[i]+l-cl, r=z[i]+r-cr,
             ans|=1<<m, k-=cnt;
     }
-    return b[ans+1];
+    return b[ans];
 }
 
 int main(){
@@ -41,9 +41,8 @@ int main(){
     fo(i,1,n) cin>>a[i], b[i]=a[i];
     
     sort(b+1, b+n+1);
-    fo(i,1,n) a[i]=lower_bound(b+1, b+n+1, a[i])-b-1;
+    fo(i,1,n) a[i]=lower_bound(b+1, b+n+1, a[i])-b;
     
     build(); int l, r, k;
-    while(q--) cin>>l>>r>>k,
-        cout<<kth(l, r, k)<<'\n';
+    while(q--) cin>>l>>r>>k, cout<<kth(l, r, k)<<'\n';
 }
