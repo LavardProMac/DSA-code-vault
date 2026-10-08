@@ -1,4 +1,4 @@
-https://oj.cppro.vn/contests/prevoi2026_w01/problem/caytao2
+https://oj.cppro.vn/contests/prevoi2026_w01/problem/caytao
 
 #include<bits/stdc++.h>
 #define ll long long
@@ -13,7 +13,6 @@ vector<int> p[N], bk[N];
 void upd(int x){
     for(; x<=n; x+=x&-x) ++bit[x];
 }
-
 int get(int x, int c=0){
     for(; x; x-=x&-x) c+=bit[x];
     return c;
