@@ -13,7 +13,6 @@ vector<int> bk[N];
 void upd(int x, ll v){
     for(; x<=N; x+=x&-x) bit[x]+=v;
 }
-
 ll get(int x, ll s=0){
     for(; x; x-=x&-x) s+=bit[x];
     return s;
