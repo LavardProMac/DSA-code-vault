@@ -48,8 +48,7 @@ int main(){
         fo(i,1,q){
             unite(u[i], v[i]);
             for(int g:b[i])
-                if(kt(g)) hi[g]=i;
-                else lo[g]=i+1;
+                kt(g)? hi[g]=i:lo[g]=i+1;
         }
     }
     fo(i,1,m)
