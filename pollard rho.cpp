@@ -13,28 +13,24 @@ inline ull mul(ull a, ull b, ull m){
 ull pw(ull a, ull b, ull m){
     ull r=1;
     while(b){
-        if(b&1) r=mul(r,a,m);
-        a=mul(a,a,m); b>>=1;
+        if(b&1) r=mul(r, a, m);
+        a=mul(a, a, m); b>>=1;
     }
     return r;
 }
 
 bool chk(ull n){
-    if(n<2||n%2==0) return n==2;
-
+    if(n<2 || n%2==0) return n==2;
     ull d=n-1,s=0;
     while(!(d&1)) d>>=1, ++s;
 
     for(ull a:{2,325,9375,28178,450775,9780504,1795265022}){
-
         if(a%n==0) continue;
-        ull x=pw(a,d,n);
-
-        if(x==1||x==n-1) continue;
+        ull x=pw(a, d, n);
+        if(x==1 || x==n-1) continue;
         bool ok=0;
-
         fo(i,1,s-1){
-            x=mul(x,x,n);
+            x=mul(x, x, n);
             if(x==n-1) {ok=1; break;}
         }
         if(!ok) return 0;
@@ -44,15 +40,11 @@ bool chk(ull n){
 
 ull rho(ull n){
     if(n%2==0) return 2;
-
-    ull c=uniform_int_distribution<ull>
-    (1,n-1)(rd), d=1;
-
-    ull x=uniform_int_distribution<ull>
-    (0,n-1)(rd), y=x;
+    ull c=uniform_int_distribution<ull>(1, n-1)(rd), d=1;
+    ull x=uniform_int_distribution<ull>(0, n-1)(rd), y=x;
 
     auto f=[&](ull x){
-        return (mul(x,x,n)+c)%n;
+        return (mul(x, x, n)+c)%n;
     };
     while(d==1){
         x=f(x); y=f(f(y));
