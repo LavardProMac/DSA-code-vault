@@ -1,30 +1,29 @@
-// Source: cses.fi/problemset/task/1671
-
 #include<bits/stdc++.h>
 #define ll long long
-#define pii pair<ll, int>
 #define fo(i,j,n) for(int i=j; i<=n; ++i)
 using namespace std;
 
-vector<pii> a[100005]; ll d[100005];
-priority_queue<pii, vector<pii>, greater<pii>> pq;
+ll d[200005];
+vector<pair<int, int>> a[200005];
+priority_queue<pair<ll, int>> pq;
 
 int main(){
     ios::sync_with_stdio(0); cin.tie(0);
-    int n, m, u, v, w;
-    
-    cin>>n>>m; pq.push({0, 1});
-    memset(d, 0x3f, sizeof d); d[1]=0;
+    freopen("DUONGDI.INP", "r", stdin);
+    freopen("DUONGDI.OUT", "w", stdout);
 
+    int n, m, s, t, u, v, w;
+    cin>>n>>m>>s>>t; pq.push({0, s});
+    memset(d, 0x3f, sizeof d); d[s]=0;
     fo(i,1,m) cin>>u>>v>>w,
-        a[u].emplace_back(v, w);
+        a[u].emplace_back(v, w),
+        a[v].emplace_back(u, w);
 
     while(!pq.empty()){
         auto [du, u]=pq.top(); pq.pop();
-        if(du!=d[u]) continue;
-
-        for(auto [v, w]:a[u]) if(d[v]>d[u]+w)
-            d[v]=d[u]+w, pq.push({d[v], v});
+        if(-du>d[u]) continue;
+        for(auto [v, w]:a[u]) if(d[v]>w-du)
+            d[v]=w-du, pq.push({du-w, v});
     }
-    fo(i,1,n) cout<<d[i]<<' ';
+    cout<<(d[t]>2e18? -1:d[t]);
 }
