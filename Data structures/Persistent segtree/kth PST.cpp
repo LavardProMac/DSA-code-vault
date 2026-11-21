@@ -9,15 +9,13 @@ const int N=2e5+5;
 struct node{int l, r, cnt;} st[N*20];
 int a[N], b[N], root[N], num;
 
-int upd(int id, int l, int r, int p){
-    int cur=++num;
-    st[cur]=st[id]; ++st[cur].cnt;
-    if(l==r) return cur;
-    
+int upd(int &id, int old, int l, int r, int p){
+    st[id=++num]=st[old]; ++st[id].cnt;
+    if(l==r) return id;
     int m=l+r>>1;
-    if(p<=m) st[cur].l=upd(st[id].l, l, m, p);
-    else st[cur].r=upd(st[id].r, m+1, r, p);
-    return cur;
+    if(p<=m) upd(st[id].l, st[id].l, l, m, p);
+    else upd(st[id].r, st[id].r, m+1, r, p);
+    return id;
 }
 
 int get(int u, int v, int l, int r, int k){
@@ -37,7 +35,7 @@ int main(){
 
     fo(i,1,n){
         int x=lower_bound(b+1, b+m+1, a[i])-b;
-        root[i]=upd(root[i-1], 1, m, x);
+        upd(root[i], root[i-1], 1, m, x);
     }
     while(q--){
         int l, r, k; cin>>l>>r>>k;
