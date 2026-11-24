@@ -19,19 +19,17 @@ void dfs(int u, int pr){
 void build(){
     st[0][1]=a[1];
     fo(i,2,tin) lg[i]=lg[i>>1]+1, st[0][i]=a[i];
-    
     fo(j,1,lg[tin]) fo(i,1,tin-(1<<j)+1)
         if(d[st[j-1][i]]<d[st[j-1][i+(1<<j-1)]])
             st[j][i]=st[j-1][i];
         else st[j][i]=st[j-1][i+(1<<j-1)];
 }
 
-int lca(int u, int v){
+inline int lca(int u, int v){
     int l=p[u], r=p[v];
     if(l>r) swap(l, r);
-    
-    int i=lg[r-l+1];
-    int x=st[i][l], y=st[i][r-(1<<i)+1];
+    int i=lg[r-l+1], x=st[i][l];
+    int y=st[i][r-(1<<i)+1];
     return d[x]<d[y]? x:y;
 }
 
